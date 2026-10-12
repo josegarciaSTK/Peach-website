@@ -31,3 +31,8 @@ section.s{padding-top:var(--sy)}
 .foot .lw{display:block;width:100%;height:auto;margin:clamp(24px,4vw,64px) 0 -2px}
 @media (max-width:900px){.top nav{display:none}.head{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}}
+
+/* Shared cinematic Peach direction, 2026-10-12. */
+:root{--ink:#000;--raised:#101010;--high:#212121;--chalk:#E1E0CC;--smoke:#a0a195;--light:#DEDBC8;--line:#ffffff26;--sans:"Almarai",Arial,sans-serif}
+body{color:var(--chalk)}.top{background:#000e}.pillbtn{background:var(--light);color:#101010}.pillbtn.line{background:transparent;color:var(--chalk)}.panel.light{background:var(--light);border-color:var(--light)}
+@media(max-width:600px){body>main[style]{grid-template-columns:1fr!important;padding-top:50px;padding-bottom:50px}}
