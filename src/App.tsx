@@ -1,8 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import { motion, MotionConfig, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, Plus } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Plus } from 'lucide-react';
 import { WordsPullUp, WordsPullUpMultiStyle, ScrollRevealText } from './components/AnimatedText';
 import { CinematicVideo } from './components/CinematicVideo';
+import { BloomHero } from './components/BloomHero';
+import { WorkIndex } from './components/WorkIndex';
+import { ProcessStack } from './components/ProcessStack';
+import { StatementBand } from './components/StatementBand';
 
 const services = [
   { id: 'fix', number: '01', name: 'Peach Fix.', category: 'The right first step', description: 'Turn “we should fix that” into something that works.', items: ['One clear enquiry path', 'The right details, every time', 'A named person on the other end', 'Tested, documented, handed over'] },
@@ -59,24 +63,7 @@ export default function App() {
   return <MotionConfig reducedMotion="user">
     <a className="skip-link" href="#about">Skip to content</a>
     <main>
-      <section id="home" className="hero-section p-4 md:p-6" aria-label="Peach creative and growth studio">
-        <div className="hero-frame rounded-2xl md:rounded-[2rem]">
-          <CinematicVideo name="hero" label="hero background video" priority />
-          <div className="noise-overlay hero-noise" aria-hidden="true" />
-          <div className="hero-shade" aria-hidden="true" />
-          <a href="#home" className="hero-logo" aria-label="Peach home"><img src="/assets/peach-icon-white.svg" alt="" width="36" height="42" /></a>
-          <nav className="nav-pill" aria-label="Main navigation"><a href="#about">Our story</a><a href="#services">What we do</a><a href="#process">The process</a><a href="#questions">Good questions</a><a href="#contact">Let’s talk <ArrowUpRight size={12} /></a></nav>
-          <div className="hero-note"><span className="peach-dot" /> Independent thinking.<br /><span>Good things, made to work.</span></div>
-          <div className="hero-content">
-            <div className="hero-title-wrap"><p className="hero-kicker">A little less friction. A lot more possibility.</p><h1><WordsPullUp text="peach" showAsterisk /></h1></div>
-            <motion.div className="hero-description" initial={reduce ? false : { opacity: 0, transform: 'translateY(20px)' }} animate={{ opacity: 1, transform: 'translateY(0px)' }} transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}>
-              <p>Thoughtful brands. Websites with presence. Systems that make the everyday easier. We bring the pieces together, so your business can move forward.</p>
-              <PillLink href="#contact">Make it peachy</PillLink>
-            </motion.div>
-          </div>
-          <a href="#about" className="scroll-cue"><ArrowDown size={12} /> Scroll to discover</a>
-        </div>
-      </section>
+      <BloomHero />
 
       <section id="about" className="about-section" aria-labelledby="about-heading">
         <div className="section-caption"><span>01 / A fresh perspective</span><span>Thoughtful by design.</span></div>
@@ -87,16 +74,16 @@ export default function App() {
           <a className="text-link" href="#services">A better way to work <ArrowUpRight size={17} /></a>
           <span className="about-decoration" aria-hidden="true">*</span>
         </div>
-        <div id="process" className="process-row">
-          <div className="process-label"><span className="eyebrow">Keep it simple.</span><p>Good work.<br /><i>No runaround.</i></p></div>
-          {[['01', 'Find the friction.', 'A short conversation about what’s working, what isn’t, and what matters next.'], ['02', 'Make it work.', 'A clear scope. Considered design. A working solution, tested together.'], ['03', 'Keep moving.', 'A proper handover, with ongoing care when there’s a reason for it.']].map(([n, title, text]) => <div className="process-step" key={n}><span className="step-number">{n}</span><h3>{title}</h3><p>{text}</p></div>)}
-        </div>
       </section>
+
+      <WorkIndex />
+
+      <ProcessStack />
 
       <section id="services" className="features-section" aria-labelledby="features-heading">
         <span id="offers" className="anchor-alias" />
         <div className="bg-noise" aria-hidden="true" />
-        <div className="section-caption"><span>02 / What we bring</span><span>One good place to start.</span></div>
+        <div className="section-caption"><span>04 / What we bring</span><span>One good place to start.</span></div>
         <div className="features-heading"><h2 id="features-heading"><WordsPullUpMultiStyle segments={[{ text: 'Make a better first impression.' }]} /><br /><WordsPullUpMultiStyle segments={[{ text: 'Then make every next step easier.', className: 'muted-heading' }]} /></h2><a className="text-link" href="#contact">Find your starting point <ArrowUpRight size={17} /></a></div>
         <div className="feature-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-2">
           <motion.article className="feature-film" initial={reduce ? false : { opacity: 0, transform: 'scale(0.95)' }} whileInView={{ opacity: 1, transform: 'scale(1)' }} viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
@@ -113,6 +100,7 @@ export default function App() {
         <div className="other-offer"><span>More ways to make the everyday easier.</span><a href="/service.html?s=answer">Meet Peach Answer <ArrowUpRight size={15} /><small>In testing</small></a></div>
         <div className="questions" id="questions"><div><span className="eyebrow">Before we say hello</span><h3>Good questions.<br /><i>Straight answers.</i></h3></div><div className="question-list">{questions.map(({ q, a }) => <details key={q}><summary>{q}<Plus size={18} strokeWidth={1.4} /></summary><p>{a}</p></details>)}</div></div>
       </section>
+      <StatementBand />
     </main>
     <Contact />
   </MotionConfig>;

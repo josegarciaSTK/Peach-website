@@ -15,7 +15,17 @@ Deploy the generated `dist/` directory. The build copies the static service, leg
 
 ## Homepage
 
-`src/App.tsx` renders the cinematic homepage: video hero, about and process, services grid, questions, and the contact footer. Components live in `src/components/` (`AnimatedText.tsx`, `CinematicVideo.tsx`); fonts and the Tailwind theme are in `src/index.css`. Videos and their posters are in `assets/cinematic/` (compressed to about 2 MB in total). Motion respects reduced-motion preferences, and each video has a pause control.
+`src/App.tsx` renders the homepage in this order:
+
+1. **Bloom hero** (`src/components/BloomHero.tsx`): the "peach" wordmark (`PeachWordmark.tsx`) behind the pixel-art bloom. Moving the pointer (or dragging on touch) leaves an organic morph trail that turns the violet bloom (`assets/art/bloom-violet-1335.png`) into the peach one (`assets/art/bloom-peach-1400.png`). Mask canvases are capped at 720px on the long side to keep the per-frame cost down.
+2. **About**, then **Selected work** (`WorkIndex.tsx`): a numbered project list; on desktop a preview image follows the cursor on a spring and leans with its speed, other rows dim, and keyboard focus shows the preview too. Touch screens get inline thumbnails instead.
+3. **The process** (`ProcessStack.tsx`): sticky cards that stack and shrink slightly as you scroll.
+4. **What we bring**: the cinematic services grid (`CinematicVideo.tsx`) and questions.
+5. **Statement band** (`StatementBand.tsx`): the one vivid-red section from the brand brief, with a drifting marquee nudged by scroll.
+
+Fonts and the Tailwind theme are in `src/index.css`. Motion respects reduced-motion preferences. `assets/cinematic/hero.mp4` is no longer used by the homepage; it is kept for now.
+
+**Draft content:** the four projects in `WorkIndex.tsx` are placeholders without client names. Replace each with a real case study only once the client has given written permission.
 
 The contact form does not send anything: it prepares an email draft to reach@peachhq.co in the visitor's mail app.
 
