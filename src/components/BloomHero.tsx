@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { Magnetic } from './Interaction';
 import { PeachWordmark } from './PeachWordmark';
 
 // Morph-reveal trail: the violet bloom ripens to peach wherever the pointer passes.
@@ -146,47 +147,57 @@ function useMorphTrail(hostRef: React.RefObject<HTMLElement | null>, subjectRef:
 }
 
 const reveal = [0.16, 1, 0.3, 1] as const;
+const BADGE = 'MOVE TO RIPEN ✳ MAKE IT PEACHY ✳ ';
 
 export function BloomHero() {
   const reduce = useReducedMotion();
   const frameRef = useRef<HTMLDivElement>(null);
   const subjectRef = useRef<HTMLDivElement>(null);
   useMorphTrail(frameRef, subjectRef);
-  const rise = (delay: number) => reduce ? { initial: false as const } : { initial: { opacity: 0, y: 14 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.72, delay, ease: [0.25, 0.8, 0.28, 1] as const } };
+  const rise = (delay: number) => reduce ? { initial: false as const } : { initial: { opacity: 0, y: 18 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8, delay, ease: reveal } };
 
   return (
-    <section id="home" className="hero-section p-4 md:p-6" aria-label="Peach creative and growth studio">
-      <div ref={frameRef} className="hero-frame bloom-frame rounded-2xl md:rounded-[2rem]">
-        <div className="noise-overlay hero-noise" aria-hidden="true" />
-        <motion.a href="#home" className="hero-logo" aria-label="Peach home" {...rise(0.1)}><img src="/assets/peach-icon-white.svg" alt="" width="36" height="42" /></motion.a>
-        <motion.nav className="nav-pill" aria-label="Main navigation" {...(reduce ? {} : { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.55, delay: 0.18 } })}>
-          <a href="#about">Our story</a><a href="#work">Work</a><a href="#services">What we do</a><a href="#process">The process</a><a href="#contact">Let’s talk <ArrowUpRight size={12} /></a>
-        </motion.nav>
+    <section id="home" className="hero" aria-labelledby="hero-title">
+      <div ref={frameRef} className="hero__frame" data-cursor="Ripen">
+        <div className="grain" aria-hidden="true" />
+        <div className="hero__glow" aria-hidden="true" />
 
-        <h1 className="bloom-word" aria-label="Peach">
-          <span className="bloom-word__mask">
-            <motion.span className="bloom-word__inner" initial={reduce ? false : { y: '118%' }} animate={{ y: '0%' }} transition={{ duration: 1.15, delay: 0.3, ease: reveal }}>
-              <PeachWordmark className="bloom-word__svg" />
+        <h1 id="hero-title" className="hero__word">
+          <span className="sr-only">Peach: brands, websites and the systems that bring in business</span>
+          <span className="hero__word-mask" aria-hidden="true">
+            <motion.span className="hero__word-inner" initial={reduce ? false : { y: '110%' }} animate={{ y: '0%' }} transition={{ duration: 1.2, delay: 0.25, ease: reveal }}>
+              <PeachWordmark className="hero__word-svg" />
             </motion.span>
           </span>
         </h1>
 
-        <motion.div ref={subjectRef} className="bloom-subject" initial={reduce ? false : { opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.15, delay: 0.66, ease: reveal }}>
+        <motion.div ref={subjectRef} className="bloom-subject" initial={reduce ? false : { opacity: 0, y: 40, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 1.3, delay: 0.6, ease: reveal }}>
           <img className="bloom-sizer" src="/assets/art/bloom-violet-1335.png" alt="" aria-hidden="true" />
-          <div className="bloom-layer bloom-layer--bg"><img src="/assets/art/bloom-violet-1335.png" alt="Pixel-art bloom that turns peach where you move your cursor" /></div>
+          <div className="bloom-layer bloom-layer--bg"><img src="/assets/art/bloom-violet-1335.png" alt="Pixel-art blossom that turns peach where you move your cursor" /></div>
           <div className="bloom-layer bloom-layer--top" aria-hidden="true"><img src="/assets/art/bloom-peach-1400.png" alt="" /></div>
         </motion.div>
 
-        <div className="hero-shade bloom-shade" aria-hidden="true" />
+        <motion.div className="hero__badge" aria-hidden="true" {...rise(1.2)}>
+          <svg viewBox="0 0 200 200" className={reduce ? '' : 'is-spinning'}>
+            <defs><path id="badge-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+            <text><textPath href="#badge-circle" textLength="488" lengthAdjust="spacing">{BADGE}</textPath></text>
+          </svg>
+          <img src="/assets/peach-icon-coral.svg" alt="" width="44" height="53" />
+        </motion.div>
 
-        <div className="bloom-copy">
-          <motion.p className="bloom-copy__left" {...rise(0.98)}>Brand, websites, content<br /> and the systems behind them.</motion.p>
-          <motion.div className="hero-description bloom-copy__right" {...rise(0.98)}>
-            <p>Thoughtful brands. Websites with presence. Systems that make the everyday easier. We bring the pieces together, so your business can move forward.</p>
-            <a className="pill-link group" href="#contact"><span>Make it peachy</span><span className="pill-arrow"><ArrowRight size={20} strokeWidth={1.6} /></span></a>
+        <div className="hero__foot">
+          <motion.ul className="hero__tags mono" {...rise(1)}>
+            <li>Brand</li><li>Websites</li><li>Content</li><li>Systems</li>
+          </motion.ul>
+          <motion.div className="hero__pitch" {...rise(1.05)}>
+            <p>We make good businesses <em className="serif">look as good as they are</em>, then make the next enquiry easier to win.</p>
+            <div className="hero__ctas">
+              <Magnetic><a className="btn btn--peach" href="#contact" data-cursor="Hello"><span>Book a free call</span><ArrowUpRight size={18} strokeWidth={1.8} /></a></Magnetic>
+              <a className="btn btn--ghost" href="#offers">See the offers</a>
+            </div>
           </motion.div>
         </div>
-        <motion.a href="#about" className="scroll-cue" {...rise(1.1)}><ArrowDown size={12} /> Scroll to discover</motion.a>
+        <motion.a href="#about" className="hero__scroll mono" aria-label="Scroll to the next section" {...rise(1.3)}><ArrowDown size={13} /> Scroll</motion.a>
       </div>
     </section>
   );

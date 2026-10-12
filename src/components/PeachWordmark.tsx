@@ -9,7 +9,7 @@ const PATHS: Array<['white' | 'grad', string]> = [
   ['grad', 'M1346.92,1155.32v64.39h-32.2v-64.39c0-17.79-14.42-32.2-32.2-32.2v96.59h-32.2v-177.08h32.2v48.29 C1318.09,1090.93,1346.92,1119.75,1346.92,1155.32z']
 ];
 
-export function PeachWordmark({ className = '' }: { className?: string }) {
+export function PeachWordmark({ className = '', mono = false }: { className?: string; mono?: boolean }) {
   const id = useId().replace(/:/g, '');
   return (
     <svg className={className} viewBox="650 1086 700 186" aria-hidden="true" focusable="false">
@@ -19,7 +19,7 @@ export function PeachWordmark({ className = '' }: { className?: string }) {
           <stop offset="1" stopColor="#FA7576" />
         </linearGradient>
       </defs>
-      {PATHS.map(([fill, d], i) => <path key={i} d={d} fill={fill === 'white' ? '#FFFFFF' : `url(#pw-${id})`} />)}
+      {PATHS.map(([fill, d], i) => <path key={i} d={d} fill={mono ? 'currentColor' : fill === 'white' ? '#FFFFFF' : `url(#pw-${id})`} />)}
     </svg>
   );
 }

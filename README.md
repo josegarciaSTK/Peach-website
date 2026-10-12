@@ -15,17 +15,21 @@ Deploy the generated `dist/` directory. The build copies the static service, leg
 
 ## Homepage
 
-`src/App.tsx` renders the homepage in this order:
+Story: **from blossom to ripe**. `src/App.tsx` renders, in order:
 
-1. **Bloom hero** (`src/components/BloomHero.tsx`): the "peach" wordmark (`PeachWordmark.tsx`) behind the pixel-art bloom. Moving the pointer (or dragging on touch) leaves an organic morph trail that turns the violet bloom (`assets/art/bloom-violet-1335.png`) into the peach one (`assets/art/bloom-peach-1400.png`). Mask canvases are capped at 720px on the long side to keep the per-frame cost down.
-2. **About**, then **Selected work** (`WorkIndex.tsx`): a numbered project list; on desktop a preview image follows the cursor on a spring and leans with its speed, other rows dim, and keyboard focus shows the preview too. Touch screens get inline thumbnails instead.
-3. **The process** (`ProcessStack.tsx`): sticky cards that stack and shrink slightly as you scroll.
-4. **What we bring**: the cinematic services grid (`CinematicVideo.tsx`) and questions.
-5. **Statement band** (`StatementBand.tsx`): the one vivid-red section from the brand brief, with a drifting marquee nudged by scroll.
+1. **Header** (`SiteHeader.tsx`): fixed; switches to a light treatment over light sections; "Book a call" is always visible.
+2. **Hero, the blossom** (`BloomHero.tsx`): the peach wordmark behind the pixel-art bloom. Moving the pointer (or dragging on touch) leaves an organic morph trail that turns the violet bloom into the peach one. Rotating "move to ripen" badge, pitch line and two calls to action.
+3. **About** (`Manifesto.tsx`): a large statement whose words light up on scroll, with inline image pills, then three proof points.
+4. **Process, ripening** (`RipenProcess.tsx`, `RipePeach.tsx`): a pinned stage where an illustrated SVG peach ripens from green to coral while the three steps play through.
+5. **Work** (`WorkGallery.tsx`): a pinned horizontal rail of typographic project posters.
+6. **Offers** (`Offers.tsx`): the three offers as cards with fruit stickers (real peach PLU codes), Peach Answer, and the questions.
+7. **Finale** (`Finale.tsx`): the one red marquee band, the coral contact section and the footer wordmark.
 
-Fonts and the Tailwind theme are in `src/index.css`. Motion respects reduced-motion preferences. `assets/cinematic/hero.mp4` is no longer used by the homepage; it is kept for now.
+Interaction (`Interaction.tsx`): Lenis inertia scrolling, magnetic buttons and a labelled peach cursor (fine pointers only). Everything respects reduced-motion: pinned sections fall back to static layouts. Fonts are the self-hosted brand fonts in `fonts/` (Inter, Instrument Serif, IBM Plex Mono); tokens are at the top of `src/index.css`.
 
-**Draft content:** the four projects in `WorkIndex.tsx` are placeholders without client names. Replace each with a real case study only once the client has given written permission.
+**Swapping in the real peach:** the hero bloom images (`assets/art/bloom-*.png`) and the illustrated `RipePeach` are stand-ins. Replace them with peach photography or video in the same frames; nothing else needs to change.
+
+**Draft content:** the four projects in `WorkGallery.tsx` are anonymous placeholders. Replace each with a real case study only once the client has given written permission. The proof points in `Manifesto.tsx` are new copy to confirm.
 
 The contact form does not send anything: it prepares an email draft to reach@peachhq.co in the visitor's mail app.
 
@@ -36,7 +40,7 @@ The contact form does not send anything: it prepares an email draft to reach@pea
 - `404.html` — not found
 
 ## Assets
-- `assets/` — supplied Peach logo SVGs (unchanged), `cinematic/` homepage videos, posters and service icons, and `art/` lily artwork used on the service and 404 pages.
+- `assets/` — supplied Peach logo SVGs (unchanged), `cinematic/` videos, posters and service icons (no longer used anywhere; kept for now), and `art/` bloom artwork.
 - `fonts/` — Instrument Serif, Inter, IBM Plex Mono (owner-supplied, self-hosted).
 
 ## Before launch
