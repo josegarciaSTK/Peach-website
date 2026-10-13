@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Magnetic } from './Interaction';
+import { PeachLogo } from './PeachLogo';
 
 const links = [['About', '#about'], ['Process', '#process'], ['Work', '#work'], ['Offers', '#offers']] as const;
 
@@ -21,8 +22,7 @@ export function SiteHeader() {
   return (
     <motion.header className="site-header" data-solid={solid || open || undefined} initial={reduce ? false : { opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
       <a href="#home" className="site-header__brand" aria-label="Peach, back to top">
-        <img src="/assets/peach-icon-coral.svg" alt="" width="22" height="27" />
-        <span>Peach</span>
+        <PeachLogo title="Peach" />
       </a>
       <nav className="site-header__nav mono" aria-label="Main">
         {links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}

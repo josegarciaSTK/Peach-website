@@ -179,18 +179,7 @@
         "purpose": "The single serif accent word in a heading."
       }
     },
-    "shadows": [
-      {
-        "name": "cta-glow",
-        "value": "0 14px 30px -10px #fa7576aa",
-        "purpose": "Hero call-to-action hover only."
-      },
-      {
-        "name": "sticker",
-        "value": "0 6px 14px -6px #0f0d0c66",
-        "purpose": "Small lifted objects such as stickers."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
         "name": "ease-house",
@@ -299,7 +288,7 @@
     "northStar": "Ripe Timing",
     "overview": "Everything on a Peach page arrives when it is ready. Fruit is not rushed: it blossoms, sets and ripens, and the site behaves the same way. Headlines rise into place once, the lavender branch turns peach only where the visitor's attention goes, and the process peach ripens from green to coral exactly as fast as the reader scrolls. Nothing loops for its own sake and nothing shouts. When something moves, it is because a moment has arrived.\n\nThe world is a warm night orchard: a deep brown-black ground, cream text the colour of blossom, and peach coral as the fruit, the one colour that means \"act here\". The feel is warm and human, premium and crafted, playful in its details (the peach cursor, the ripening fruit, the magnetic buttons), and calm and clear in its reading. Big type, generous space and one strong idea per section keep it calm; the playfulness lives in small reactive details, never in noise.\n\nInteraction is tactile and lively. Buttons lean toward the cursor, project cards stack as you pass them, and the cursor itself turns into a labelled peach disc over anything clickable. The motion is springy but settles quickly, and it is always gentler with reduced motion turned on.",
     "keyCharacteristics": [
-      "Dark warm ground everywhere; one vivid red band is the only light section.",
+      "Dark warm ground everywhere; one vivid red band is the only light section; flat colour, no glows.",
       "Peach coral is reserved for actions, highlights and the fruit itself.",
       "Large Inter display type with one Instrument Serif word as a counterpoint.",
       "Fully round pills for actions; large, soft-cornered cards for content.",
@@ -327,8 +316,8 @@
         "section": "typography"
       },
       {
-        "name": "The Glow Not Shadow Rule",
-        "body": "To lift something, put a low-opacity peach glow behind it or step its tone up. Do not add grey drop shadows under cards.",
+        "name": "The Flat Light Rule",
+        "body": "Surfaces are flat colour. To lift something, step its tone up (Night Pit to Bark). No radial glows behind art or sections, and no drop shadows. The owner rejected the glows on 2026-10-13.",
         "section": "elevation"
       }
     ],
@@ -343,7 +332,7 @@
     "donts": [
       "**Don't** use gradient-filled text.",
       "**Don't** use tiny uppercase tracked labels, monospace captions or \"(01)\" style section numbering.",
-      "**Don't** put grey drop shadows under cards.",
+      "**Don't** put glows or drop shadows behind art, sections or cards.",
       "**Don't** use signal red anywhere except the closing band.",
       "**Don't** animate layout properties (width, height, top, left); animate transform and opacity.",
       "**Don't** add looping decorative motion that means nothing."

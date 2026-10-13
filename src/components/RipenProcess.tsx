@@ -34,9 +34,7 @@ export function RipenProcess() {
   const ripeness = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.5 });
   const [index, setIndex] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', v => setIndex(Math.min(steps.length - 1, Math.floor(v * steps.length * 0.999))));
-  const glow = useTransform(ripeness, [0, 0.5, 1], ['#a7b86833', '#f6b48c38', '#fa757647']);
   const bar = scrollYProgress;
-  const glowBg = useTransform(glow, c => `radial-gradient(50% 50% at 50% 50%, ${c} 0%, transparent 70%)`);
 
   const list = (
     <ol className="ripen__steps">
@@ -71,7 +69,6 @@ export function RipenProcess() {
             <div className="ripen__track" aria-hidden="true"><motion.i style={{ scaleX: bar }} /></div>
           </div>
           <div className="ripen__fruit">
-            <motion.div className="ripen__glow" style={{ background: glowBg }} aria-hidden="true" />
             <div className="ripen__fruit-inner" role="img" aria-label="A peach blossom that becomes a green peach, then a ripe one"><Stages ripeness={ripeness} /></div>
             <span className="ripen__stage-name mono" aria-hidden="true">{steps[index].stage}</span>
           </div>

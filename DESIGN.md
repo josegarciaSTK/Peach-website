@@ -57,6 +57,7 @@ rounded:
   card: "clamp(32px, 4vw, 56px)"
   panel: "clamp(28px, 3.6vw, 52px)"
   tile: "16px"
+  sheet: "28px"
 spacing:
   gutter: "clamp(16px, 3.2vw, 48px)"
   section: "clamp(80px, 10vw, 160px)"
@@ -113,7 +114,7 @@ The world is a warm night orchard: a deep brown-black ground, cream text the col
 Interaction is tactile and lively. Buttons lean toward the cursor, project cards stack as you pass them, and the cursor itself turns into a labelled peach disc over anything clickable. The motion is springy but settles quickly, and it is always gentler with reduced motion turned on.
 
 **Key Characteristics:**
-- Dark warm ground everywhere; one vivid red band is the only light section.
+- Dark warm ground everywhere; one vivid red band is the only light section; flat colour, no glows.
 - Peach coral is reserved for actions, highlights and the fruit itself.
 - Large Inter display type with one Instrument Serif word as a counterpoint.
 - Fully round pills for actions; large, soft-cornered cards for content.
@@ -178,10 +179,10 @@ Breakpoints: 1024px (navigation collapses, multi-column layouts stack) and 640px
 
 ## Elevation & Depth
 
-Flat and tonal. Depth comes from tone steps (Night Pit to Bark), soft radial glows of peach behind key art, and stacking order, not from drop shadows. The only shadows are small ones on stickers and the primary button's hover glow.
+Flat and tonal. Depth comes from tone steps (Night Pit to Bark), stacking order and the curtain footer, which sits one layer beneath the page. There are no glows and no drop shadows.
 
 ### Named Rules
-**The Glow Not Shadow Rule.** To lift something, put a low-opacity peach glow behind it or step its tone up. Do not add grey drop shadows under cards.
+**The Flat Light Rule.** Surfaces are flat colour. To lift something, step its tone up (Night Pit to Bark). No radial glows behind art or sections, and no drop shadows. The owner rejected the glows on 2026-10-13.
 
 ## Shapes
 
@@ -198,7 +199,7 @@ Tactile and lively: they lean toward the cursor (a magnetic pull of about a thir
 - **Outline:** 2px blossom-cream outline, uppercase tracking reserved for the project card button; muted when it is a status rather than a link.
 
 ### Cards / Containers
-- **Project card:** night-pit fill, 2px blossom-cream outline at 25%, large viewport-scaled corners, a big project number, title block and one pill button, above a two-column image grid (40% / 60%).
+- **Project card:** night-pit fill, 2px blossom-cream outline at 25%, large viewport-scaled corners, a big project number, title block and one pill button, above a two-column image grid (40% / 60%). As a card arrives its number rises from a mask, its title follows, and its three panels open like shutters from the bottom edge while their content settles from 112% to 100%; the card beneath dims to 60% as it is covered.
 - **Offer card (What we bring):** a Bark card (8px corners) with a small square icon, number, category, title, check list and an "Explore" link along a divider.
 - **Tiles:** 16px corners, filled with brand colours or artwork, never empty boxes.
 
@@ -206,9 +207,18 @@ Tactile and lively: they lean toward the cursor (a magnetic pull of about a thir
 - **Style:** no box; a 1.5px underline in blossom cream at 30% with the label above in 14px Inter.
 - **Focus:** the underline turns peach. Placeholder text sits at about 55% cream.
 
+### Logo
+The Peach logo is the coral peach icon beside the lowercase "peach" lettering (white "pe", peach fade on "ach", as designed). The icon sits at the top of the lettering at 80% of its height. Never retype the name in a font in place of the lettering, and never crop the logo.
+
 ### Navigation
-- **Desktop:** the Peach mark and serif wordmark on the left, a centred glass pill of four links, and a small primary "Book a call" button on the right. The bar turns solid with a blur after the first 40px of scroll.
+- **Desktop:** the logo on the left, a centred glass pill of four links, and a small primary "Book a call" button on the right. The bar turns solid with a blur after the first 40px of scroll.
 - **Mobile:** links collapse into a 44px "Menu" pill that opens a full-width list of large links.
+
+### Contact
+A plain question as the heading ("What should work better?"), short reassurance, email and markets as facts, and a Bark form sheet (28px corners) that starts with one-tap topic chips.
+
+### Footer
+A curtain footer on Bark: it waits under the page and is uncovered as the page scrolls away. Intro line and call button, link columns, then the full logo across the width, which settles from 94% to 100% as it arrives, and a base row.
 
 ### Peach Cursor
 On mouse devices, a small peach dot follows the pointer on a spring. Over anything with a label it grows into a 72px peach disc with a one-word label ("Hello", "Open", "Send"), offset to the lower right so it never hides what it points at.
@@ -229,7 +239,7 @@ A soft circular spotlight (260px radius on mouse, 170px on touch) eases after th
 ### Don't:
 - **Don't** use gradient-filled text.
 - **Don't** use tiny uppercase tracked labels, monospace captions or "(01)" style section numbering.
-- **Don't** put grey drop shadows under cards.
+- **Don't** put glows or drop shadows behind art, sections or cards.
 - **Don't** use signal red anywhere except the closing band.
 - **Don't** animate layout properties (width, height, top, left); animate transform and opacity.
 - **Don't** add looping decorative motion that means nothing.

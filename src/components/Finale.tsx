@@ -2,7 +2,7 @@ import { useRef, useState, type FormEvent } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Magnetic } from './Interaction';
-import { PeachWordmark } from './PeachWordmark';
+import { PeachLogo } from './PeachLogo';
 
 const line = 'Make it peachy ✳ A little less friction ✳ A lot more possibility ✳ ';
 
@@ -20,14 +20,18 @@ function Marquee() {
   );
 }
 
-export function Finale() {
+const topics = ['Enquiries', 'Brand & content', 'Website', 'Not sure yet'];
+
+// The closing ask: one plain question, a topic in one tap, and a short form that drafts an email.
+export function Contact() {
   const [draft, setDraft] = useState<string | null>(null);
+  const [topic, setTopic] = useState(topics[0]);
   function prepareEmail(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const get = (k: string) => String(form.get(k) || '').trim();
-    const body = `Hi Peach,\n\n${get('message')}\n\nName: ${get('name')}\nBusiness: ${get('business')}\nReply to: ${get('email')}`;
-    setDraft(`mailto:reach@peachhq.co?subject=${encodeURIComponent(`A little more peachy: ${get('business') || get('name')}`)}&body=${encodeURIComponent(body)}`);
+    const body = `Hi Peach,\n\nI'd like help with: ${topic}\n\n${get('message')}\n\nName: ${get('name')}\nBusiness: ${get('business')}\nReply to: ${get('email')}`;
+    setDraft(`mailto:reach@peachhq.co?subject=${encodeURIComponent(`${topic}: ${get('business') || get('name')}`)}&body=${encodeURIComponent(body)}`);
   }
 
   return (
@@ -35,34 +39,82 @@ export function Finale() {
       <Marquee />
       <section id="contact" className="contact" aria-labelledby="contact-heading">
         <div className="contact__copy">
-          <span className="mono">Contact</span>
-          <h2 id="contact-heading">Let’s make it <span className="serif">peachy.</span></h2>
-          <p>Tell us what could feel easier. You’ll hear back from a real person, with a clear next step.</p>
-          <a className="contact__email" href="mailto:reach@peachhq.co" data-cursor="Write">reach@peachhq.co <ArrowUpRight size={22} /></a>
+          <span className="section-index"><span>Contact</span></span>
+          <h2 id="contact-heading">What should work better?</h2>
+          <p>Tell us in a few lines. You’ll hear back from a real person, with a clear next step and no sales pitch.</p>
+          <dl className="contact__facts">
+            <div><dt>Email</dt><dd><a href="mailto:reach@peachhq.co" data-cursor="Write">reach@peachhq.co</a></dd></div>
+            <div><dt>Working with</dt><dd>Businesses in the US and UK</dd></div>
+          </dl>
         </div>
         <form className="contact__form" onSubmit={prepareEmail} onChange={() => setDraft(null)}>
+          <fieldset className="contact__topics">
+            <legend>I’d like help with</legend>
+            <div>
+              {topics.map(t => (
+                <label key={t} className="chip" data-on={t === topic || undefined}>
+                  <input type="radio" name="topic" value={t} checked={t === topic} onChange={() => { setTopic(t); setDraft(null); }} />
+                  {t}
+                </label>
+              ))}
+            </div>
+          </fieldset>
           <div className="field-row">
             <label>Your name<input autoComplete="name" name="name" placeholder="Alex" required maxLength={100} /></label>
             <label>Your email<input type="email" autoComplete="email" name="email" placeholder="alex@business.com" required maxLength={254} /></label>
           </div>
           <label>Business<input name="business" autoComplete="organization" placeholder="What’s your business called?" required maxLength={150} /></label>
-          <label>What could feel easier?<textarea name="message" placeholder="A website, your brand, the enquiries you’re missing…" required rows={3} maxLength={2000} /></label>
+          <label>What’s getting in the way?<textarea name="message" placeholder="Enquiries arrive without a phone number, our site looks dated…" required rows={3} maxLength={2000} /></label>
           <div className="contact__submit">
-            <p className="mono">Opens a ready-to-send email in your mail app.</p>
+            <p>Opens a ready-to-send email in your mail app.</p>
             <Magnetic><button className="btn btn--peach" type="submit" data-cursor="Send">Prepare enquiry <ArrowUpRight size={18} /></button></Magnetic>
           </div>
           {draft ? <div className="contact__draft" role="status"><span>Your enquiry is ready.</span><a href={draft}>Open email draft <ArrowUpRight size={16} /></a></div> : null}
         </form>
       </section>
-      <footer className="footer">
-        <div className="footer__row mono">
-          <span>Make it peachy.</span>
-          <a href="/legal.html">Privacy & terms</a>
-          <span>© {new Date().getFullYear()} Peach</span>
-          <a href="#home">Back to top ↑</a>
-        </div>
-        <PeachWordmark className="footer__wordmark" />
-      </footer>
     </>
+  );
+}
+
+const footerLinks = [
+  { title: 'Studio', links: [['About', '#about'], ['Process', '#process'], ['Work', '#work'], ['Contact', '#contact']] },
+  { title: 'Offers', links: [['Peach Fix', '/service.html?s=fix'], ['Brand & Content', '/service.html?s=brand'], ['Peach Partner', '/service.html?s=partner'], ['Peach Answer', '/service.html?s=answer']] },
+] as const;
+
+// Curtain footer: it waits under the page (sticky at the bottom) and is uncovered as the page scrolls away.
+// The full logo settles from 94% to full size as it arrives.
+export function SiteFooter() {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end end'] });
+  const scale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [0.94, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ['0%', '0%'] : ['12%', '0%']);
+  return (
+    <footer ref={ref} className="footer">
+      <div className="footer__top">
+        <div className="footer__intro">
+          <p>A small studio for brands, websites and the systems behind them.</p>
+          <a className="btn btn--peach" href="#contact" data-cursor="Hello">Book a free call <ArrowUpRight size={18} /></a>
+        </div>
+        {footerLinks.map(col => (
+          <nav key={col.title} className="footer__col" aria-label={col.title}>
+            <span>{col.title}</span>
+            {col.links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+          </nav>
+        ))}
+        <div className="footer__col">
+          <span>Say hello</span>
+          <a href="mailto:reach@peachhq.co">reach@peachhq.co</a>
+        </div>
+      </div>
+      <motion.div className="footer__logo" style={{ scale, y }}>
+        <PeachLogo />
+      </motion.div>
+      <div className="footer__base">
+        <span>© {new Date().getFullYear()} Peach. Make it peachy.</span>
+        <a href="/legal.html">Privacy & terms</a>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </footer>
   );
 }

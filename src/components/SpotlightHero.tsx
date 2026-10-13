@@ -83,7 +83,6 @@ export function SpotlightHero() {
 
   return (
     <section ref={sectionRef} id="home" className="spot" aria-labelledby="hero-title">
-      <div className="spot__glow" aria-hidden="true" />
       <div className="spot__img spot__zoom" style={{ backgroundImage: `url(${BASE_IMAGE})` }} role="img" aria-label="A flowering branch in lavender blossom. Where you move your cursor, it turns peach." />
       <div ref={maskRef} className="spot__reveal" aria-hidden="true">
         <div className="spot__img spot__zoom" style={{ backgroundImage: `url(${REVEAL_IMAGE})` }} />
@@ -100,7 +99,7 @@ export function SpotlightHero() {
 
       <div className="spot__right spot-anim spot-fade" style={{ animationDelay: '0.85s' }}>
         <p>Move across the branch and watch it turn peach. Then tell us what could feel easier in your business.</p>
-        <Magnetic><a className="btn btn--peach spot__cta" href="#contact" data-cursor="Hello">Book a free call <ArrowUpRight size={18} strokeWidth={1.8} /></a></Magnetic>
+        <Magnetic><a className="btn btn--peach" href="#contact" data-cursor="Hello">Book a free call <ArrowUpRight size={18} strokeWidth={1.8} /></a></Magnetic>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ import { Manifesto } from './components/Manifesto';
 import { RipenProcess } from './components/RipenProcess';
 import { WorkShowcase } from './components/WorkShowcase';
 import { WhatWeBring } from './components/WhatWeBring';
-import { Finale } from './components/Finale';
+import { Contact, SiteFooter } from './components/Finale';
 import { PeachCursor, useSmoothScroll } from './components/Interaction';
 
 // Homepage story, "from blossom to ripe": the blossoming branch that turns peach under the cursor, the peach ripening through the
@@ -15,14 +15,18 @@ export default function App() {
   return <MotionConfig reducedMotion="user">
     <a className="skip-link" href="#about">Skip to content</a>
     <SiteHeader />
-    <main>
-      <SpotlightHero />
-      <Manifesto />
-      <RipenProcess />
-      <WorkShowcase />
-      <WhatWeBring />
-    </main>
-    <Finale />
+    {/* The page is a sheet over the footer: it scrolls away to uncover it (curtain footer). */}
+    <div className="page">
+      <main>
+        <SpotlightHero />
+        <Manifesto />
+        <RipenProcess />
+        <WorkShowcase />
+        <WhatWeBring />
+      </main>
+      <Contact />
+    </div>
+    <SiteFooter />
     <PeachCursor />
   </MotionConfig>;
 }
