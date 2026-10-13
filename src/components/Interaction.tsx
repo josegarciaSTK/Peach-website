@@ -60,7 +60,7 @@ export function PeachCursor() {
   if (!enabled) return null;
   return (
     <motion.div className="peach-cursor" aria-hidden="true" style={{ x: sx, y: sy }} data-hidden={hidden || undefined}>
-      <motion.div className="peach-cursor__disc" animate={{ scale: label ? 1 : 0.16 }} transition={{ type: 'spring', stiffness: 380, damping: 28 }}>
+      <motion.div className="peach-cursor__disc" animate={{ scale: label ? 1 : 0.16, x: label ? 44 : 0, y: label ? 44 : 0 }} transition={{ type: 'spring', stiffness: 380, damping: 28 }}>
         <motion.span animate={{ opacity: label ? 1 : 0 }} transition={{ duration: 0.15 }}>{label}</motion.span>
       </motion.div>
     </motion.div>

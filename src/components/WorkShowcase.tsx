@@ -97,7 +97,7 @@ export function WorkShowcase() {
   return (
     <section id="work" className="showcase" aria-labelledby="work-heading">
       <div className="showcase__head">
-        <div className="section-index mono"><span>(03) Selected work</span><span>Small projects, real results</span></div>
+        <div className="section-index"><span>Selected work</span></div>
         <motion.h2 id="work-heading" className="grad-heading" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0 }} transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}>
           Work that <span className="serif-italic">works.</span>
         </motion.h2>

@@ -42,7 +42,7 @@ The contact form does not send anything: it prepares an email draft to reach@pea
 - `404.html` — not found
 
 ## Assets
-- `assets/` — supplied Peach logo SVGs (unchanged), `cinematic/` videos, posters and service icons (no longer used anywhere; kept for now), and `art/` bloom artwork.
+- `assets/` — supplied Peach logo SVGs (unchanged), `cinematic/` videos, posters and service icons (not used by any page and left out of the build; kept in the repo), and `art/` bloom artwork.
 - `fonts/` — Instrument Serif, Inter, IBM Plex Mono (owner-supplied, self-hosted).
 
 ## Before launch

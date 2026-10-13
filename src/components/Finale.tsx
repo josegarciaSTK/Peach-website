@@ -35,7 +35,7 @@ export function Finale() {
       <Marquee />
       <section id="contact" className="contact" aria-labelledby="contact-heading">
         <div className="contact__copy">
-          <span className="mono">(05) Contact</span>
+          <span className="mono">Contact</span>
           <h2 id="contact-heading">Let’s make it <span className="serif">peachy.</span></h2>
           <p>Tell us what could feel easier. You’ll hear back from a real person, with a clear next step.</p>
           <a className="contact__email" href="mailto:reach@peachhq.co" data-cursor="Write">reach@peachhq.co <ArrowUpRight size={22} /></a>

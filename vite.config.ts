@@ -10,7 +10,7 @@ export default defineConfig({
     closeBundle() {
       // Legacy pages and their dynamic asset URLs keep their original paths.
       for (const path of ['assets', 'fonts', 'fonts.css', 'site.css', 'services-data.js', 'service.html', 'legal.html', '404.html']) {
-        cpSync(resolve(path), resolve('dist', path), { recursive: true });
+        cpSync(resolve(path), resolve('dist', path), { recursive: true, filter: src => !/\.mp4$|bloom-violet-1335\.png$|bloom-peach-1400\.png$/.test(src) });
       }
     },
   }],

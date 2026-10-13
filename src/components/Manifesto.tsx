@@ -30,7 +30,7 @@ export function Manifesto() {
 
   return (
     <section id="about" className="manifesto" aria-labelledby="about-label">
-      <div className="section-index mono"><span id="about-label">(01) About</span><span>A fresh perspective</span></div>
+      <div className="section-index"><span id="about-label">About</span></div>
       <p ref={ref} className="manifesto__text" aria-label={plain}>
         {words.map((content, i) => {
           return reduce
@@ -41,7 +41,6 @@ export function Manifesto() {
       <ul className="proof">
         {proof.map(([n, title, text], i) => (
           <motion.li key={n} initial={reduce ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}>
-            <span className="mono">{n}</span>
             <h3>{title}</h3>
             <p>{text}</p>
           </motion.li>

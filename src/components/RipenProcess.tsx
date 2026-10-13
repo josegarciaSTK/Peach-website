@@ -18,14 +18,14 @@ export function RipenProcess() {
   useMotionValueEvent(scrollYProgress, 'change', v => setIndex(Math.min(steps.length - 1, Math.floor(v * steps.length * 0.999))));
   const glow = useTransform(ripeness, [0, 0.5, 1], ['#a7b86833', '#f6b48c38', '#fa757647']);
   const rotate = useTransform(ripeness, [0, 1], [-8, 6]);
-  const bar = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const bar = scrollYProgress;
   const glowBg = useTransform(glow, c => `radial-gradient(50% 50% at 50% 50%, ${c} 0%, transparent 70%)`);
 
   const list = (
     <ol className="ripen__steps">
       {steps.map((s, i) => (
         <li key={s.n} data-on={reduce || i === index || undefined}>
-          <span className="mono">{s.n} — {s.stage}</span>
+          <span className="mono">{s.stage}</span>
           <h3>{s.title}</h3>
           <p>{s.text}</p>
         </li>
@@ -36,7 +36,7 @@ export function RipenProcess() {
   if (reduce) {
     return (
       <section id="process" className="ripen ripen--static" aria-labelledby="process-heading">
-        <div className="section-index mono"><span>(02) Process</span><span>From blossom to ripe</span></div>
+        <div className="section-index"><span>Process</span></div>
         <h2 id="process-heading" className="ripen__heading">Good work. <span className="serif-italic">No runaround.</span></h2>
         {list}
       </section>
@@ -46,12 +46,12 @@ export function RipenProcess() {
   return (
     <section ref={ref} id="process" className="ripen" aria-labelledby="process-heading">
       <div className="ripen__pin">
-        <div className="section-index mono"><span>(02) Process</span><span>From blossom to ripe</span></div>
+        <div className="section-index"><span>Process</span></div>
         <div className="ripen__stage">
           <div className="ripen__copy">
             <h2 id="process-heading" className="ripen__heading">Good work. <span className="serif-italic">No runaround.</span></h2>
             {list}
-            <div className="ripen__track" aria-hidden="true"><motion.i style={{ width: bar }} /></div>
+            <div className="ripen__track" aria-hidden="true"><motion.i style={{ scaleX: bar }} /></div>
           </div>
           <div className="ripen__fruit">
             <motion.div className="ripen__glow" style={{ background: glowBg }} aria-hidden="true" />

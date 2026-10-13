@@ -28,7 +28,7 @@ export function WhatWeBring() {
     <div className="wwb" id="offers">
       <section id="services" className="features-section" aria-labelledby="features-heading">
         <div className="bg-noise" aria-hidden="true" />
-        <div className="section-caption"><span>04 / What we bring</span><span>One good place to start.</span></div>
+        <div className="section-caption"><span>What we bring</span></div>
         <div className="features-heading">
           <h2 id="features-heading"><WordsPullUpMultiStyle segments={[{ text: 'Make a better first impression.' }]} /><br /><WordsPullUpMultiStyle segments={[{ text: 'Then make every next step easier.', className: 'muted-heading' }]} /></h2>
           <a className="text-link" href="#contact">Find your starting point <ArrowUpRight size={17} /></a>
