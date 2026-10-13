@@ -128,7 +128,9 @@ img{max-width:100%}
 .ripen__fruit{position:relative;display:grid;place-items:center;height:100%;max-height:72vh}
 .ripen__fruit-inner{position:relative;z-index:1;width:100%;height:100%;display:grid;place-items:center}
 .ripen__glow{position:absolute;inset:-10%;z-index:0;border-radius:50%}
-.ripen__peach{width:100%;height:100%;max-width:560px;overflow:visible}
+.ripen__stages{position:relative;width:min(100%,560px);aspect-ratio:1;max-height:100%}
+.ripen__peach-wrap{position:absolute;inset:0}
+.ripen__img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
 .ripen__stage-name{position:absolute;bottom:0;right:0;z-index:2;padding:8px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px #dedbc840;color:var(--cream)}
 .ripen--static{height:auto;padding:96px var(--gutter)}
 .ripen--static .ripen__steps li{opacity:1}
@@ -221,7 +223,7 @@ img{max-width:100%}
   .ripen__steps li{padding:10px 0;grid-template-columns:96px 1fr}
   .ripen__steps li:not([data-on]) p{display:none}
   .ripen__fruit{max-height:none}
-  .ripen__peach{max-width:300px}
+  .ripen__stages{width:min(100%,300px)}
   .pc-head{grid-template-columns:auto 1fr}
   .pc-btn{grid-column:1/-1;justify-self:start}
 }
@@ -237,7 +239,7 @@ img{max-width:100%}
   .ripen__steps .mono{grid-row:auto;padding-top:0}
   .ripen__steps h3{font-size:22px}
   .ripen__steps p{font-size:14px}
-  .ripen__peach{max-width:200px}
+  .ripen__stages{width:min(100%,220px)}
   .pc-slot{height:auto;min-height:0;padding-bottom:24px}
   .pc{position:relative;top:auto!important}
   .pc-grid{grid-template-columns:1fr}

@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { RipePeach } from './RipePeach';
+import { motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'framer-motion';
 
 const steps = [
   { stage: 'Blossom', n: '01', title: 'Find the friction.', text: 'A short call about what’s working, what isn’t, and what matters next. You leave with a written scope, not a sales pitch.' },
@@ -8,7 +7,26 @@ const steps = [
   { stage: 'Ripe', n: '03', title: 'Keep it growing.', text: 'A proper handover you can run without us, and ongoing care only when there’s a real reason for it.' },
 ];
 
-// A pinned stage: the three steps stay readable on the left while the peach ripens on the right.
+// A pinned stage: the three steps stay readable on the left while the art on the right grows
+// from blossom to green fruit to ripe peach. The two peach images share framing, so they crossfade in place.
+function Stages({ ripeness }: { ripeness: MotionValue<number> }) {
+  const blossomOpacity = useTransform(ripeness, [0, 0.26, 0.4], [1, 1, 0]);
+  const blossomScale = useTransform(ripeness, [0, 0.26, 0.4], [1, 1.04, 0.7]);
+  const blossomRotate = useTransform(ripeness, [0, 0.4], [-6, 24]);
+  const greenOpacity = useTransform(ripeness, [0.3, 0.42], [0, 1]);
+  const peachScale = useTransform(ripeness, [0.3, 0.46, 1], [0.6, 0.92, 1]);
+  const ripeOpacity = useTransform(ripeness, [0.62, 0.82], [0, 1]);
+  return (
+    <div className="ripen__stages">
+      <motion.img src="/assets/art/stage-blossom.webp" alt="" className="ripen__img" style={{ opacity: blossomOpacity, scale: blossomScale, rotate: blossomRotate }} />
+      <motion.div className="ripen__peach-wrap" style={{ scale: peachScale }}>
+        <motion.img src="/assets/art/stage-green.webp" alt="" className="ripen__img" style={{ opacity: greenOpacity }} />
+        <motion.img src="/assets/art/stage-ripe.webp" alt="" className="ripen__img" style={{ opacity: ripeOpacity }} />
+      </motion.div>
+    </div>
+  );
+}
+
 export function RipenProcess() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -17,7 +35,6 @@ export function RipenProcess() {
   const [index, setIndex] = useState(0);
   useMotionValueEvent(scrollYProgress, 'change', v => setIndex(Math.min(steps.length - 1, Math.floor(v * steps.length * 0.999))));
   const glow = useTransform(ripeness, [0, 0.5, 1], ['#a7b86833', '#f6b48c38', '#fa757647']);
-  const rotate = useTransform(ripeness, [0, 1], [-8, 6]);
   const bar = scrollYProgress;
   const glowBg = useTransform(glow, c => `radial-gradient(50% 50% at 50% 50%, ${c} 0%, transparent 70%)`);
 
@@ -55,7 +72,7 @@ export function RipenProcess() {
           </div>
           <div className="ripen__fruit">
             <motion.div className="ripen__glow" style={{ background: glowBg }} aria-hidden="true" />
-            <motion.div style={{ rotate }} className="ripen__fruit-inner"><RipePeach ripeness={ripeness} className="ripen__peach" /></motion.div>
+            <div className="ripen__fruit-inner" role="img" aria-label="A peach blossom that becomes a green peach, then a ripe one"><Stages ripeness={ripeness} /></div>
             <span className="ripen__stage-name mono" aria-hidden="true">{steps[index].stage}</span>
           </div>
         </div>

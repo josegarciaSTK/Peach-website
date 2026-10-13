@@ -106,7 +106,7 @@ components:
 
 **Creative North Star: "Ripe Timing"**
 
-Everything on a Peach page arrives when it is ready. Fruit is not rushed: it blossoms, sets and ripens, and the site behaves the same way. Headlines rise into place once, the lavender branch turns peach only where the visitor's attention goes, and the process peach ripens from green to coral exactly as fast as the reader scrolls. Nothing loops for its own sake and nothing shouts. When something moves, it is because a moment has arrived.
+Everything on a Peach page arrives when it is ready. Fruit is not rushed: it blossoms, sets and ripens, and the site behaves the same way. Headlines rise into place once, the lavender branch turns peach only where the visitor's attention goes, and the process art grows from blossom to green fruit to ripe peach exactly as fast as the reader scrolls. Nothing loops for its own sake and nothing shouts. When something moves, it is because a moment has arrived.
 
 The world is a warm night orchard: a deep brown-black ground, cream text the colour of blossom, and peach coral as the fruit, the one colour that means "act here". The feel is warm and human, premium and crafted, playful in its details (the peach cursor, the ripening fruit, the magnetic buttons), and calm and clear in its reading. Big type, generous space and one strong idea per section keep it calm; the playfulness lives in small reactive details, never in noise.
 
