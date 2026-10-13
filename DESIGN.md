@@ -199,7 +199,7 @@ Tactile and lively: they lean toward the cursor (a magnetic pull of about a thir
 
 ### Cards / Containers
 - **Project card:** night-pit fill, 2px blossom-cream outline at 25%, large viewport-scaled corners, a big project number, title block and one pill button, above a two-column image grid (40% / 60%).
-- **Offer card (What we bring):** a dark grey card with a small square icon, number, category, title, check list and an "Explore" link along a divider.
+- **Offer card (What we bring):** a Bark card (8px corners) with a small square icon, number, category, title, check list and an "Explore" link along a divider.
 - **Tiles:** 16px corners, filled with brand colours or artwork, never empty boxes.
 
 ### Inputs / Fields
