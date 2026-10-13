@@ -18,7 +18,7 @@ Deploy the generated `dist/` directory. The build copies the static service, leg
 Story: **from blossom to ripe**. `src/App.tsx` renders, in order:
 
 1. **Header** (`SiteHeader.tsx`): fixed; switches to a light treatment over light sections; "Book a call" is always visible.
-2. **Hero, the blossom** (`SpotlightHero.tsx`): a flowering branch in lavender (`assets/art/branch-lavender.webp`). A soft circular spotlight eases after the cursor and reveals the same branch in peach (`branch-peach.webp`) inside it; touch screens get a slow drift along the branch until they drag. Load sequence: slow zoom-out on the art, blur-rise headline, then the copy and "Book a free call".
+2. **Hero, the blossom** (`SpotlightHero.tsx`): a flowering branch in lavender (`assets/art/branch-lavender.webp`, cut out of its white background so it sits on the dark hero). A soft circular spotlight eases after the cursor and reveals the same branch in peach (`branch-peach.webp`) inside it; touch screens get a slow drift along the branch until they drag. Load sequence: slow zoom-out on the art, blur-rise headline, then the copy and "Book a free call".
 3. **About** (`Manifesto.tsx`): a large statement whose words light up on scroll, with inline image pills, then three proof points.
 4. **Process, ripening** (`RipenProcess.tsx`, `RipePeach.tsx`): a pinned stage where an illustrated SVG peach ripens from green to coral while the three steps play through.
 5. **Work** (`WorkGallery.tsx`): a pinned horizontal rail of typographic project posters.

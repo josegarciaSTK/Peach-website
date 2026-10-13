@@ -82,7 +82,8 @@ export function SpotlightHero() {
   useSpotlight(sectionRef, maskRef, reduce);
 
   return (
-    <section ref={sectionRef} id="home" className="spot section-light" aria-labelledby="hero-title">
+    <section ref={sectionRef} id="home" className="spot" aria-labelledby="hero-title">
+      <div className="spot__glow" aria-hidden="true" />
       <div className="spot__img spot__zoom" style={{ backgroundImage: `url(${BASE_IMAGE})` }} role="img" aria-label="A flowering branch in lavender blossom. Where you move your cursor, it turns peach." />
       <div ref={maskRef} className="spot__reveal" aria-hidden="true">
         <div className="spot__img spot__zoom" style={{ backgroundImage: `url(${REVEAL_IMAGE})` }} />
@@ -94,7 +95,7 @@ export function SpotlightHero() {
       </h1>
 
       <div className="spot__left spot-anim spot-fade" style={{ animationDelay: '0.7s' }}>
-        <p>Peach is a small studio for brands, websites and the systems behind them. We help good businesses look as good as they are.</p>
+        <p>Peach is a small studio for brands, websites and the systems behind them.</p>
       </div>
 
       <div className="spot__right spot-anim spot-fade" style={{ animationDelay: '0.85s' }}>
