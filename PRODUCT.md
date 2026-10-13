@@ -52,7 +52,7 @@ Contact today is by email, reach@peachhq.co. The homepage form prepares an email
 - Peach Answer and Peach Partner stay labelled as drafts until the capability and programme are verified.
 - Legal text (privacy and terms) is a placeholder and needs review by a qualified adviser.
 - Undecided: whether the contact form posts to a real endpoint.
-- Unconfirmed copy currently on the homepage, to confirm or remove: "One named person: the person you talk to on day one is the one doing the work" and "Yours to keep: files, logins and handover notes, nothing locked away with us" (About section, `src/components/Manifesto.tsx`).
+- Confirmed promises (owner, 2026-10-13), shown in the About section: "One named person: the person you talk to on day one is the one doing the work" and "Yours to keep: files, logins and handover notes, nothing locked away with us". Future work must not contradict them.
 
 ## Brand Commitments
 

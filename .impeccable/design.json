@@ -1,0 +1,352 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T19:08:37+00:00",
+  "title": "Design System: Peach",
+  "extensions": {
+    "colorMeta": {
+      "night-pit": {
+        "role": "neutral",
+        "displayName": "Night Pit",
+        "canonical": "#0F0D0C",
+        "oklch": "oklch(16.1% 0.004 48.5)",
+        "tonalRamp": [
+          "#0D0B0A",
+          "#262322",
+          "#423F3E",
+          "#605D5C",
+          "#827F7E",
+          "#A4A19F",
+          "#CAC6C5",
+          "#F1EEEC"
+        ]
+      },
+      "bark": {
+        "role": "neutral",
+        "displayName": "Bark",
+        "canonical": "#1A1715",
+        "oklch": "oklch(20.7% 0.006 56.0)",
+        "tonalRamp": [
+          "#0D0B09",
+          "#262321",
+          "#423F3D",
+          "#605D5A",
+          "#837F7D",
+          "#A5A09E",
+          "#CBC6C3",
+          "#F2EDEB"
+        ]
+      },
+      "peach-flesh": {
+        "role": "primary",
+        "displayName": "Peach Flesh",
+        "canonical": "#FA7576",
+        "oklch": "oklch(72.0% 0.163 21.6)",
+        "tonalRamp": [
+          "#360000",
+          "#5B0000",
+          "#7F0014",
+          "#A52832",
+          "#CE5054",
+          "#F57374",
+          "#FF9A99",
+          "#FFDFDD"
+        ]
+      },
+      "peach-skin": {
+        "role": "primary",
+        "displayName": "Peach Skin",
+        "canonical": "#FFD9C7",
+        "oklch": "oklch(91.3% 0.049 46.8)",
+        "tonalRamp": [
+          "#1B0400",
+          "#371C0E",
+          "#553829",
+          "#755546",
+          "#9A7867",
+          "#BC9988",
+          "#E3BEAD",
+          "#FFE5D3"
+        ]
+      },
+      "blossom-cream": {
+        "role": "neutral",
+        "displayName": "Blossom Cream",
+        "canonical": "#DEDBC8",
+        "oklch": "oklch(88.9% 0.026 99.6)",
+        "tonalRamp": [
+          "#0E0B01",
+          "#272416",
+          "#434031",
+          "#615E4E",
+          "#84816F",
+          "#A5A290",
+          "#CBC8B5",
+          "#F2EFDC"
+        ]
+      },
+      "pale-cream": {
+        "role": "neutral",
+        "displayName": "Pale Cream",
+        "canonical": "#EEEBDD",
+        "oklch": "oklch(93.9% 0.019 96.9)",
+        "tonalRamp": [
+          "#0D0B04",
+          "#26241A",
+          "#424035",
+          "#605E52",
+          "#838074",
+          "#A5A295",
+          "#CAC8BA",
+          "#F2EFE1"
+        ]
+      },
+      "signal-red": {
+        "role": "secondary",
+        "displayName": "Signal Red",
+        "canonical": "#FF2A1F",
+        "oklch": "oklch(64.2% 0.244 29.2)",
+        "tonalRamp": [
+          "#360000",
+          "#5B0000",
+          "#800000",
+          "#A52B21",
+          "#CE5244",
+          "#F57565",
+          "#FF9C89",
+          "#FFE0D8"
+        ]
+      },
+      "leaf": {
+        "role": "secondary",
+        "displayName": "Leaf",
+        "canonical": "#5E7F3E",
+        "oklch": "oklch(55.5% 0.100 131.1)",
+        "tonalRamp": [
+          "#001100",
+          "#102C00",
+          "#2C4A02",
+          "#496928",
+          "#6B8C4B",
+          "#8BAF6C",
+          "#B0D590",
+          "#E0F7CE"
+        ]
+      },
+      "dust": {
+        "role": "neutral",
+        "displayName": "Dust",
+        "canonical": "#8E8A80",
+        "oklch": "oklch(63.4% 0.015 88.7)",
+        "tonalRamp": [
+          "#0E0B05",
+          "#27241C",
+          "#433F37",
+          "#615D54",
+          "#848076",
+          "#A5A197",
+          "#CBC7BC",
+          "#F3EEE3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display (serif)",
+        "purpose": "First hero line; one serif phrase per heading."
+      },
+      "display-sans": {
+        "displayName": "Display (sans)",
+        "purpose": "Second hero line and big statements."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Steps, cards and project names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, 44–56ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section names, categories, form labels; sentence case."
+      },
+      "accent-italic": {
+        "displayName": "Accent italic",
+        "purpose": "The single serif accent word in a heading."
+      }
+    },
+    "shadows": [
+      {
+        "name": "cta-glow",
+        "value": "0 14px 30px -10px #fa7576aa",
+        "purpose": "Hero call-to-action hover only."
+      },
+      {
+        "name": "sticker",
+        "value": "0 6px 14px -6px #0f0d0c66",
+        "purpose": "Small lifted objects such as stickers."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-house",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances and state changes."
+      },
+      {
+        "name": "hover",
+        "value": "0.3s",
+        "purpose": "Colour and background changes on hover."
+      },
+      {
+        "name": "press",
+        "value": "0.2s scale(0.97)",
+        "purpose": "Button press."
+      },
+      {
+        "name": "entrance",
+        "value": "0.8–1.2s",
+        "purpose": "One-time load and in-view reveals."
+      },
+      {
+        "name": "magnetic-spring",
+        "value": "stiffness 220, damping 18, mass 0.5",
+        "purpose": "Buttons leaning toward the cursor."
+      },
+      {
+        "name": "spotlight-lerp",
+        "value": "0.1 per frame",
+        "purpose": "Hero spotlight following the pointer."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "hero-mobile",
+        "value": "767px"
+      },
+      {
+        "name": "tablet",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call to action, e.g. Book a free call.",
+      "html": "<button class=\"ds-btn-primary\">Book a free call <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 17 17 7\"/><path d=\"M7 7h10v10\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border:0;border-radius:999px;background:#FA7576;color:#0F0D0C;font:500 15px/1 Inter,system-ui,sans-serif;letter-spacing:-.01em;cursor:pointer;transition:background-color .3s cubic-bezier(.16,1,.3,1),transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn-primary svg{transition:transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn-primary:hover{background:#FFD9C7}.ds-btn-primary:hover svg{transform:translate(2px,-2px) rotate(45deg)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #FA7576;outline-offset:4px}"
+    },
+    {
+      "name": "Small Button",
+      "kind": "button",
+      "refersTo": "button-small",
+      "description": "Header call to action.",
+      "html": "<button class=\"ds-btn-small\">Book a call</button>",
+      "css": ".ds-btn-small{height:40px;padding:0 16px;border:0;border-radius:999px;background:#FA7576;color:#0F0D0C;font:500 14px/1 Inter,system-ui,sans-serif;cursor:pointer;transition:background-color .3s cubic-bezier(.16,1,.3,1)}.ds-btn-small:hover{background:#FFD9C7}.ds-btn-small:focus-visible{outline:2px solid #FA7576;outline-offset:4px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on project cards.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">You're looking at it</a>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;padding:12px 26px;border:2px solid #DEDBC8CC;border-radius:999px;color:#DEDBC8;font:500 13px/1 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:#0F0D0C;transition:background-color .25s}.ds-btn-outline:hover{background:#DEDBC81A}.ds-btn-outline:focus-visible{outline:2px solid #FA7576;outline-offset:4px}"
+    },
+    {
+      "name": "Navigation Pill",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Centred desktop navigation.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">About</a><a href=\"#\">Process</a><a href=\"#\">Work</a><a href=\"#\">Offers</a></nav>",
+      "css": ".ds-nav{display:inline-flex;gap:4px;padding:6px;border-radius:999px;background:#DEDBC81F;border:1px solid #DEDBC84D;backdrop-filter:blur(14px)}.ds-nav a{padding:7px 16px;border-radius:999px;color:#DEDBC8CC;font:500 14px/1.2 Inter,system-ui,sans-serif;text-decoration:none;transition:background-color .25s,color .25s}.ds-nav a:hover{background:#DEDBC826;color:#DEDBC8}.ds-nav a:focus-visible{outline:2px solid #FA7576;outline-offset:2px}"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Contact form field.",
+      "html": "<label class=\"ds-field\">Your name<input placeholder=\"Alex\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;color:#DEDBC8CC;font:500 14px/1.4 Inter,system-ui,sans-serif}.ds-field input{font:400 18px/1.4 Inter,system-ui,sans-serif;color:#DEDBC8;background:transparent;border:0;border-bottom:1.5px solid #DEDBC84D;padding:10px 0 12px;transition:border-color .3s}.ds-field input::placeholder{color:#DEDBC88C}.ds-field input:focus{outline:none;border-color:#FA7576}"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Stacking project card header.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-num\">04</span><div><span class=\"ds-card-cat\">Our own · Peach</span><h3>Peach</h3><p>Our brand, this site and its systems</p></div></article>",
+      "css": ".ds-card{display:flex;align-items:flex-end;gap:28px;padding:28px;border-radius:48px;border:2px solid #DEDBC840;background:#0F0D0C;color:#DEDBC8;font-family:Inter,system-ui,sans-serif}.ds-card-num{font-size:96px;font-weight:700;letter-spacing:-.06em;line-height:.8;color:#FFD9C7}.ds-card-cat{color:#FA7576;font-size:14px;font-weight:500}.ds-card h3{margin:8px 0 4px;font-size:34px;font-weight:500;letter-spacing:-.04em}.ds-card p{margin:0;color:#DEDBC899}"
+    },
+    {
+      "name": "Section Label",
+      "kind": "chip",
+      "description": "Plain section name above a heading.",
+      "html": "<span class=\"ds-label\">Selected work</span>",
+      "css": ".ds-label{color:#FA7576;font:500 15px/1.4 Inter,system-ui,sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Ripe Timing",
+    "overview": "Everything on a Peach page arrives when it is ready. Fruit is not rushed: it blossoms, sets and ripens, and the site behaves the same way. Headlines rise into place once, the lavender branch turns peach only where the visitor's attention goes, and the process peach ripens from green to coral exactly as fast as the reader scrolls. Nothing loops for its own sake and nothing shouts. When something moves, it is because a moment has arrived.\n\nThe world is a warm night orchard: a deep brown-black ground, cream text the colour of blossom, and peach coral as the fruit, the one colour that means \"act here\". The feel is warm and human, premium and crafted, playful in its details (the peach cursor, the ripening fruit, the magnetic buttons), and calm and clear in its reading. Big type, generous space and one strong idea per section keep it calm; the playfulness lives in small reactive details, never in noise.\n\nInteraction is tactile and lively. Buttons lean toward the cursor, project cards stack as you pass them, and the cursor itself turns into a labelled peach disc over anything clickable. The motion is springy but settles quickly, and it is always gentler with reduced motion turned on.",
+    "keyCharacteristics": [
+      "Dark warm ground everywhere; one vivid red band is the only light section.",
+      "Peach coral is reserved for actions, highlights and the fruit itself.",
+      "Large Inter display type with one Instrument Serif word as a counterpoint.",
+      "Fully round pills for actions; large, soft-cornered cards for content.",
+      "Motion that responds to the visitor (cursor, scroll), timed to settle quickly."
+    ],
+    "rules": [
+      {
+        "name": "The Ripe Fruit Rule",
+        "body": "Peach coral marks what is ripe to act on: buttons, the current step, the label of a section. Do not spend it on decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Band Rule",
+        "body": "Signal red appears once per page, as the closing marquee band.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Serif Word Rule",
+        "body": "A heading gets at most one Instrument Serif phrase, usually its last words (\"works.\", \"peachy.\", \"No runaround.\"). Never set a whole paragraph in the serif.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readable Label Rule",
+        "body": "Labels are sentence case at 14px or more. No tiny tracked capitals and no index numbers like \"(01)\" in front of section names.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Not Shadow Rule",
+        "body": "To lift something, put a low-opacity peach glow behind it or step its tone up. Do not add grey drop shadows under cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep every section on the Night Pit ground; use Bark for raised surfaces.",
+      "**Do** use the house curve, cubic-bezier(0.16, 1, 0.3, 1), for entrances and state changes; keep hover and press transitions at 0.2–0.3s.",
+      "**Do** let motion respond to the visitor (cursor, scroll position) rather than play on its own.",
+      "**Do** give every movement a reduced-motion version that keeps the state change and drops the travel.",
+      "**Do** gate hover effects behind fine pointers.",
+      "**Do** keep tap targets at 44px or more."
+    ],
+    "donts": [
+      "**Don't** use gradient-filled text.",
+      "**Don't** use tiny uppercase tracked labels, monospace captions or \"(01)\" style section numbering.",
+      "**Don't** put grey drop shadows under cards.",
+      "**Don't** use signal red anywhere except the closing band.",
+      "**Don't** animate layout properties (width, height, top, left); animate transform and opacity.",
+      "**Don't** add looping decorative motion that means nothing."
+    ]
+  }
+}
