@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { Magnetic } from './Interaction';
 import { PeachLogo } from './PeachLogo';
 
-const links = [['About', '#about'], ['Process', '#process'], ['Work', '#work'], ['Offers', '#offers']] as const;
+const links = [['What we fix', '#fix'], ['Process', '#process'], ['Work', '#work'], ['Offers', '#offers'], ['Pricing', '#pricing']] as const;
 
 export function SiteHeader() {
   const reduce = useReducedMotion();

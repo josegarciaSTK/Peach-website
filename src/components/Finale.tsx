@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { ArrowUpRight } from 'lucide-react';
 import { Magnetic } from './Interaction';
 import { PeachLogo } from './PeachLogo';
+import { MaskedLines } from './MaskedLines';
 
 const line = 'Make it peachy ✳ A little less friction ✳ A lot more possibility ✳ ';
 
@@ -40,7 +41,7 @@ export function Contact() {
       <section id="contact" className="contact" aria-labelledby="contact-heading">
         <div className="contact__copy">
           <span className="section-index"><span>Contact</span></span>
-          <h2 id="contact-heading">What should work better?</h2>
+          <MaskedLines id="contact-heading" lines={['What should', 'work better?']} />
           <p>Tell us in a few lines. You’ll hear back from a real person, with a clear next step and no sales pitch.</p>
           <dl className="contact__facts">
             <div><dt>Email</dt><dd><a href="mailto:reach@peachhq.co" data-cursor="Write">reach@peachhq.co</a></dd></div>
@@ -77,7 +78,7 @@ export function Contact() {
 }
 
 const footerLinks = [
-  { title: 'Studio', links: [['About', '#about'], ['Process', '#process'], ['Work', '#work'], ['Contact', '#contact']] },
+  { title: 'Studio', links: [['About', '#about'], ['What we fix', '#fix'], ['Process', '#process'], ['Work', '#work'], ['Pricing', '#pricing'], ['Contact', '#contact']] },
   { title: 'Offers', links: [['Peach Fix', '/service.html?s=fix'], ['Brand & Content', '/service.html?s=brand'], ['Peach Partner', '/service.html?s=partner'], ['Peach Answer', '/service.html?s=answer']] },
 ] as const;
 

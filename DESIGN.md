@@ -246,6 +246,15 @@ A plain question as the heading ("What should work better?"), short reassurance,
 ### Footer
 A curtain footer on Bark: it waits under the page and is uncovered as the page scrolls away. Intro line and call button, link columns, then the full logo across the width, which settles from 94% to 100% as it arrives, and a base row.
 
+### Problem Index (What we fix)
+Problems in the owner's words as large Title rows; inactive rows sit at 42% opacity and a peach dot slides (spring) to the active one. On wide screens the answer shows in a Bark panel beside the list (offer, what it does, first step, link); on narrow screens it opens under the tapped row.
+
+### Pricing Line
+Three steps along a 2px line that fills with peach as the section scrolls, carried by the peach icon (which turns once along the way). No prices are shown; every price is quoted for the scope.
+
+### Masked Headline
+Section headings rise line by line from behind their own baseline (0.9s, second line 110ms later), once, when in view. Used on What we fix, Process, Pricing and Contact.
+
 ### Peach Cursor
 On mouse devices, a small peach dot follows the pointer on a spring. Over anything with a label it grows into a 72px peach disc with a one-word label ("Hello", "Open", "Send"), offset to the lower right so it never hides what it points at.
 

@@ -134,6 +134,53 @@ img{max-width:100%}
 .ripen--static{height:auto;padding:96px var(--gutter)}
 .ripen--static .ripen__steps li{opacity:1}
 
+/* Masked headline: each line rises from behind its own baseline */
+.masked__line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.masked__inner{display:block}
+
+/* What we fix: problems as an index, the answer in one panel */
+.fix{padding:clamp(80px,10vw,160px) var(--gutter);background:var(--ink)}
+.fix__head{display:grid;grid-template-columns:1.2fr 1fr;align-items:end;gap:32px;margin-bottom:clamp(40px,5vw,72px)}
+.fix__heading{font-size:var(--fs-headline);font-weight:450;letter-spacing:-.05em;line-height:.98}
+.fix__heading .serif-italic{color:var(--peach)}
+.fix__head p{font-size:var(--fs-lead);color:#dedbc8b3;max-width:30ch;line-height:1.35}
+.fix__body{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,72px);align-items:start}
+.fix__list{list-style:none;margin:0;padding:0}
+.fix__row{position:relative;display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:24px;width:100%;padding:clamp(18px,2vw,28px) 0 clamp(18px,2vw,28px) 28px;border:0;border-top:1px solid #dedbc81f;background:none;text-align:left;cursor:pointer;color:var(--cream)}
+.fix__list li:last-child .fix__row{border-bottom:1px solid #dedbc81f}
+.fix__problem{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.12;text-wrap:balance;transition:opacity .25s,transform .35s var(--ease)}
+.fix__offer{display:flex;align-items:center;gap:8px;font-size:var(--fs-label);font-weight:500;color:var(--peach);white-space:nowrap;transition:opacity .25s}
+.fix__offer small{font-size:var(--fs-caption);font-weight:400;color:#dedbc8b3;padding:2px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px #dedbc840}
+.fix__row[aria-pressed=false] .fix__problem,.fix__row[aria-pressed=false] .fix__offer{opacity:.42}
+.fix__row[aria-pressed=true] .fix__problem{transform:translateX(6px)}
+.fix__marker{position:absolute;left:0;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--peach)}
+.fix__panel{position:sticky;top:110px;padding:clamp(24px,3vw,40px);border-radius:28px;background:var(--ink-2);min-height:340px}
+.fix__kind{font-size:var(--fs-label);color:#dedbc899}
+.fix__panel h3{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;margin:6px 0 16px}
+.fix__panel p{font-size:var(--fs-body);color:#dedbc8cc;max-width:44ch}
+.fix__first{display:grid;gap:4px;margin:24px 0;padding:16px 18px;border-radius:16px;background:#dedbc80d;font-size:var(--fs-body)}
+.fix__first span{font-size:var(--fs-label);font-weight:500;color:var(--peach)}
+.fix__link{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-label);font-weight:500;border-bottom:2px solid var(--peach);padding:8px 0 4px;transition:color .2s}
+.fix__link:hover{color:var(--peach)}
+/* the answer shows beside the list on wide screens and under the tapped row on narrow ones */
+.fix__inline{display:none}
+.fix__inline h3{display:none}
+.fix__inline p{font-size:var(--fs-body);color:#dedbc8cc}
+@media(hover:hover) and (pointer:fine){.fix__row:hover .fix__problem,.fix__row:hover .fix__offer{opacity:1}}
+
+/* How pricing works: three calm steps along a line a peach travels */
+.pricing{padding:clamp(80px,10vw,160px) var(--gutter);background:var(--ink)}
+.pricing__head{display:grid;grid-template-columns:1.2fr 1fr;align-items:end;gap:32px;margin-bottom:clamp(48px,6vw,96px)}
+.pricing__heading{font-size:var(--fs-headline);font-weight:450;letter-spacing:-.05em;line-height:.98}
+.pricing__head p{font-size:var(--fs-lead);color:#dedbc8b3;max-width:32ch;line-height:1.35}
+.pricing__line{position:relative;height:2px;background:#dedbc81f;margin:0 0 clamp(28px,3vw,44px)}
+.pricing__line i{position:absolute;inset:0;background:var(--peach);transform-origin:0 50%}
+.pricing__peach{position:absolute;top:50%;width:34px;height:40px;margin:-22px 0 0 -17px;display:grid;place-items:center;background:var(--ink);padding:0 4px}
+.pricing__peach img{width:100%;height:100%}
+.pricing__steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px)}
+.pricing__steps h3{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin-bottom:12px}
+.pricing__steps p{font-size:var(--fs-body);color:#dedbc8b3;max-width:34ch}
+
 /* Work: sliding tile rows, then stacked project cards */
 .showcase{position:relative;background:var(--ink);padding:clamp(88px,10vw,160px) 0 clamp(64px,8vw,120px)}
 .showcase__head{padding:0 var(--gutter)}
@@ -192,7 +239,7 @@ img{max-width:100%}
 .band__track span{padding-right:.3em}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px);padding:clamp(80px,9vw,140px) var(--gutter);background:var(--ink);color:var(--cream)}
-.contact h2{font-size:var(--fs-display);font-weight:450;letter-spacing:-.055em;line-height:.92;margin:0 0 24px;text-wrap:balance;max-width:9ch}
+.contact .masked{font-size:var(--fs-display);font-weight:450;letter-spacing:-.055em;line-height:.92;margin:0 0 24px;text-wrap:balance;max-width:9ch}
 .contact__copy p{font-size:var(--fs-lead);max-width:36ch;color:#dedbc8cc}
 .contact__facts{display:grid;gap:18px;margin:40px 0 0;padding:0}
 .contact__facts dt{font-size:var(--fs-label);font-weight:500;color:#dedbc899;margin-bottom:4px}
@@ -247,6 +294,12 @@ img{max-width:100%}
 @media(max-width:1024px){
   .site-header__nav{display:none}
   .contact{grid-template-columns:1fr}
+  .fix__head,.fix__body,.pricing__head{grid-template-columns:1fr}
+  .fix__panel{display:none}
+  .fix__inline{display:block;padding:4px 0 24px 28px}
+  .fix__offer{white-space:normal}
+  .fix__row{grid-template-columns:1fr}
+  .pricing__steps{grid-template-columns:1fr}
   .footer__top{grid-template-columns:1fr 1fr}
   .footer__intro{grid-column:1/-1}
   .proof{grid-template-columns:1fr}

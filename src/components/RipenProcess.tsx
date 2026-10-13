@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { MaskedLines } from './MaskedLines';
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform, type MotionValue } from 'framer-motion';
 
 const steps = [
@@ -52,7 +53,7 @@ export function RipenProcess() {
     return (
       <section id="process" className="ripen ripen--static" aria-labelledby="process-heading">
         <div className="section-index"><span>Process</span></div>
-        <h2 id="process-heading" className="ripen__heading">Good work. <span className="serif-italic">No runaround.</span></h2>
+        <MaskedLines id="process-heading" className="ripen__heading" lines={['Good work.', <span className="serif-italic">No runaround.</span>]} />
         {list}
       </section>
     );
@@ -64,7 +65,7 @@ export function RipenProcess() {
         <div className="section-index"><span>Process</span></div>
         <div className="ripen__stage">
           <div className="ripen__copy">
-            <h2 id="process-heading" className="ripen__heading">Good work. <span className="serif-italic">No runaround.</span></h2>
+            <MaskedLines id="process-heading" className="ripen__heading" lines={['Good work.', <span className="serif-italic">No runaround.</span>]} />
             {list}
             <div className="ripen__track" aria-hidden="true"><motion.i style={{ scaleX: bar }} /></div>
           </div>
