@@ -15,7 +15,6 @@ export default function App() {
   return <MotionConfig reducedMotion="user">
     <a className="skip-link" href="#about">Skip to content</a>
     <SiteHeader />
-    {/* The page is a sheet over the footer: it scrolls away to uncover it (curtain footer). */}
     <div className="page">
       <main>
         <SpotlightHero />

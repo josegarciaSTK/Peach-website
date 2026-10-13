@@ -81,8 +81,7 @@ const footerLinks = [
   { title: 'Offers', links: [['Peach Fix', '/service.html?s=fix'], ['Brand & Content', '/service.html?s=brand'], ['Peach Partner', '/service.html?s=partner'], ['Peach Answer', '/service.html?s=answer']] },
 ] as const;
 
-// Curtain footer: it waits under the page (sticky at the bottom) and is uncovered as the page scrolls away.
-// The full logo settles from 94% to full size as it arrives.
+// Footer: intro, link columns, then the full logo, which settles from 94% to full size as it arrives.
 export function SiteFooter() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();

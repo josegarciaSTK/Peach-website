@@ -12,7 +12,7 @@ const PATHS: Array<['white' | 'grad', string]> = [
 export function PeachWordmark({ className = '', mono = false }: { className?: string; mono?: boolean }) {
   const id = useId().replace(/:/g, '');
   return (
-    <svg className={className} viewBox="650 1086 700 186" aria-hidden="true" focusable="false">
+    <svg className={className} viewBox="651 1041 698 228" aria-hidden="true" focusable="false">
       <defs>
         <linearGradient id={`pw-${id}`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#FFD9C7" />

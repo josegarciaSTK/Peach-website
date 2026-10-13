@@ -11,48 +11,70 @@ colors:
   signal-red: "#FF2A1F"
   leaf: "#5E7F3E"
   dust: "#8E8A80"
+  paper-white: "#FFFFFF"
 typography:
+  monument:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(64px, 11vw, 184px)"
+    fontWeight: 700
+    lineHeight: 0.9
+    letterSpacing: "-0.06em"
   display:
     fontFamily: "Instrument Serif, Georgia, serif"
-    fontSize: "clamp(48px, 6.4vw, 104px)"
+    fontSize: "clamp(48px, 7vw, 112px)"
     fontWeight: 400
     lineHeight: 0.95
     letterSpacing: "-0.03em"
   display-sans:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(48px, 6.4vw, 104px)"
+    fontSize: "clamp(48px, 7vw, 112px)"
     fontWeight: 450
     lineHeight: 0.95
-    letterSpacing: "-0.075em"
+    letterSpacing: "-0.06em"
   headline:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(36px, 4.6vw, 80px)"
+    fontSize: "clamp(36px, 4.6vw, 72px)"
     fontWeight: 450
-    lineHeight: 0.95
+    lineHeight: 0.98
     letterSpacing: "-0.05em"
   title:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(22px, 2.2vw, 34px)"
+    fontSize: "clamp(24px, 2.4vw, 36px)"
     fontWeight: 500
     lineHeight: 1.1
     letterSpacing: "-0.035em"
+  lead:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(19px, 1.6vw, 24px)"
+    fontWeight: 400
+    lineHeight: 1.3
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "16px"
+    fontSize: "clamp(16px, 1.15vw, 18px)"
     fontWeight: 400
     lineHeight: 1.5
   label:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "14px"
+    fontSize: "15px"
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: "-0.01em"
+  caption:
+    fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "13px"
+    fontWeight: 400
+    lineHeight: 1.4
   accent-italic:
     fontFamily: "Instrument Serif, Georgia, serif"
     fontWeight: 400
     letterSpacing: "-0.01em"
 rounded:
   pill: "999px"
+  bar: "3px"
+  focus: "4px"
+  card-sm: "8px"
+  icon: "10px"
   field: "12px"
   card: "clamp(32px, 4vw, 56px)"
   panel: "clamp(28px, 3.6vw, 52px)"
@@ -138,6 +160,7 @@ A warm night palette: brown-blacks and blossom creams, with peach coral as the s
 - **Blossom Cream** (#DEDBC8): body text and UI text; used at 60–80% opacity for secondary text and around 12–25% for dividers and outlines.
 - **Pale Cream** (#EEEBDD): the large statement text in the About section.
 - **Dust** (#8E8A80): muted metadata.
+- **Paper White** (#FFFFFF): text on Signal Red only (the marquee band and red tiles).
 
 ### Named Rules
 **The Ripe Fruit Rule.** Peach coral marks what is ripe to act on: buttons, the current step, the label of a section. Do not spend it on decoration.
@@ -153,17 +176,20 @@ A warm night palette: brown-blacks and blossom creams, with peach coral as the s
 **Character:** a tight, slightly heavy Inter carries the message with negative tracking; a single Instrument Serif word gives each heading its warmth, like a handwritten note on a crate label.
 
 ### Hierarchy
-- **Display** (Instrument Serif 400 or Inter 450, clamp(48px, 6.4vw, 104px), line-height 0.95): the hero lines; one serif line over one Inter line.
-- **Statement** (Inter 450, clamp(34px, 5.4vw, 92px), line-height 1.02): the About statement that lights up word by word.
-- **Headline** (Inter 450, clamp(36px, 4.6vw, 80px), line-height 0.95): section headings, with the serif accent word in peach.
-- **Title** (Inter 500, clamp(22px, 2.2vw, 34px), line-height 1.1): process steps, card and project names.
-- **Body** (Inter 400, 15–20px, line-height 1.5): paragraphs, kept to about 44ch beside imagery and 56ch in long answers.
-- **Label** (Inter 500, 14px, sentence case): section names, categories, form labels and small notes.
+Eight steps, each clearly larger than the last, exposed as `--fs-*` tokens in `src/index.css`. Never set a raw font size; pick a step.
+- **Monument** (Inter 700, clamp(64px, 11vw, 184px)): one per page region at most: "Work that works.", the red marquee band, giant poster words.
+- **Display** (Instrument Serif 400 or Inter 450, clamp(48px, 7vw, 112px)): the hero lines, the contact question, big project numbers.
+- **Headline** (Inter 450, clamp(36px, 4.6vw, 72px)): section headings and the About statement.
+- **Title** (Inter 500, clamp(24px, 2.4vw, 36px)): process steps, project names, question headings.
+- **Lead** (Inter 400, clamp(19px, 1.6vw, 24px)): intro lines beside headings, offer card titles, contact facts.
+- **Body** (Inter 400, clamp(16px, 1.15vw, 18px)): paragraphs and form inputs, about 44–56ch wide.
+- **Label** (Inter 500, 15px, sentence case): section names, buttons, navigation, form labels, lists in cards.
+- **Caption** (Inter 400, 13px): fine print, tags, the cursor label. Nothing smaller exists.
 
 ### Named Rules
 **The One Serif Word Rule.** A heading gets at most one Instrument Serif phrase, usually its last words ("works.", "peachy.", "No runaround."). Never set a whole paragraph in the serif.
 
-**The Readable Label Rule.** Labels are sentence case at 14px or more. No tiny tracked capitals and no index numbers like "(01)" in front of section names.
+**The Readable Label Rule.** Labels are sentence case at 15px (captions 13px, the floor). No tiny tracked capitals and no index numbers like "(01)" in front of section names.
 
 ## Layout
 
