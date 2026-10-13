@@ -6,7 +6,7 @@ type Piece = string | { inline: ReactNode };
 const statement: Piece[] = [
   'We’re Peach,', { inline: <span className="inline-pill inline-pill--peach"><img src="/assets/peach-icon-white.svg" alt="" /></span> },
   'a small studio for brands, websites and the systems behind them. We make good businesses',
-  { inline: <span className="inline-pill inline-pill--bloom"><img src="/assets/art/bloom-peach-1400.png" alt="" /></span> },
+  { inline: <span className="inline-pill inline-pill--bloom"><img src="/assets/art/branch-peach.webp" alt="" /></span> },
   'look as good as they are, then make every next enquiry easier to win.',
 ];
 

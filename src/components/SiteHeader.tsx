@@ -12,11 +12,13 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [light, setLight] = useState(false);
   // Flip to the light treatment whenever a light section sits under the header.
-  useMotionValueEvent(scrollY, 'change', v => {
+  const sync = (v: number) => {
     setSolid(v > 40);
     const under = document.elementsFromPoint(window.innerWidth / 2, 34).find(el => !el.closest('.site-header'));
     setLight(Boolean(under?.closest('.section-light, .contact')));
-  });
+  };
+  useMotionValueEvent(scrollY, 'change', sync);
+  useEffect(() => { sync(window.scrollY); }, []);
   useEffect(() => {
     if (!open) return;
     const close = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };

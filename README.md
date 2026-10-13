@@ -18,7 +18,7 @@ Deploy the generated `dist/` directory. The build copies the static service, leg
 Story: **from blossom to ripe**. `src/App.tsx` renders, in order:
 
 1. **Header** (`SiteHeader.tsx`): fixed; switches to a light treatment over light sections; "Book a call" is always visible.
-2. **Hero, the blossom** (`BloomHero.tsx`): the peach wordmark behind the pixel-art bloom. Moving the pointer (or dragging on touch) leaves an organic morph trail that turns the violet bloom into the peach one. Rotating "move to ripen" badge, pitch line and two calls to action.
+2. **Hero, the blossom** (`SpotlightHero.tsx`): a flowering branch in lavender (`assets/art/branch-lavender.webp`). A soft circular spotlight eases after the cursor and reveals the same branch in peach (`branch-peach.webp`) inside it; touch screens get a slow drift along the branch until they drag. Load sequence: slow zoom-out on the art, blur-rise headline, then the copy and "Book a free call".
 3. **About** (`Manifesto.tsx`): a large statement whose words light up on scroll, with inline image pills, then three proof points.
 4. **Process, ripening** (`RipenProcess.tsx`, `RipePeach.tsx`): a pinned stage where an illustrated SVG peach ripens from green to coral while the three steps play through.
 5. **Work** (`WorkGallery.tsx`): a pinned horizontal rail of typographic project posters.
@@ -27,7 +27,7 @@ Story: **from blossom to ripe**. `src/App.tsx` renders, in order:
 
 Interaction (`Interaction.tsx`): Lenis inertia scrolling, magnetic buttons and a labelled peach cursor (fine pointers only). Everything respects reduced-motion: pinned sections fall back to static layouts. Fonts are the self-hosted brand fonts in `fonts/` (Inter, Instrument Serif, IBM Plex Mono); tokens are at the top of `src/index.css`.
 
-**Swapping in the real peach:** the hero bloom images (`assets/art/bloom-*.png`) and the illustrated `RipePeach` are stand-ins. Replace them with peach photography or video in the same frames; nothing else needs to change.
+**Swapping in the real peach:** the illustrated `RipePeach` is a stand-in; replace it with peach photography or video in the same frame. The hero branch images must keep identical framing so the spotlight lines up. `assets/art/bloom-*.png` are no longer used by the homepage.
 
 **Draft content:** the four projects in `WorkGallery.tsx` are anonymous placeholders. Replace each with a real case study only once the client has given written permission. The proof points in `Manifesto.tsx` are new copy to confirm.
 
