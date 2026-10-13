@@ -49,7 +49,7 @@ export function Finale() {
           <label>What could feel easier?<textarea name="message" placeholder="A website, your brand, the enquiries you’re missing…" required rows={3} maxLength={2000} /></label>
           <div className="contact__submit">
             <p className="mono">Opens a ready-to-send email in your mail app.</p>
-            <Magnetic><button className="btn btn--ink" type="submit" data-cursor="Send">Prepare enquiry <ArrowUpRight size={18} /></button></Magnetic>
+            <Magnetic><button className="btn btn--peach" type="submit" data-cursor="Send">Prepare enquiry <ArrowUpRight size={18} /></button></Magnetic>
           </div>
           {draft ? <div className="contact__draft" role="status"><span>Your enquiry is ready.</span><a href={draft}>Open email draft <ArrowUpRight size={16} /></a></div> : null}
         </form>

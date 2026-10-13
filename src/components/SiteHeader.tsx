@@ -10,15 +10,7 @@ export function SiteHeader() {
   const { scrollY } = useScroll();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
-  const [light, setLight] = useState(false);
-  // Flip to the light treatment whenever a light section sits under the header.
-  const sync = (v: number) => {
-    setSolid(v > 40);
-    const under = document.elementsFromPoint(window.innerWidth / 2, 34).find(el => !el.closest('.site-header'));
-    setLight(Boolean(under?.closest('.section-light, .contact')));
-  };
-  useMotionValueEvent(scrollY, 'change', sync);
-  useEffect(() => { sync(window.scrollY); }, []);
+  useMotionValueEvent(scrollY, 'change', v => setSolid(v > 40));
   useEffect(() => {
     if (!open) return;
     const close = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
@@ -27,7 +19,7 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <motion.header className="site-header" data-solid={solid || open || undefined} data-light={(light && !open) || undefined} initial={reduce ? false : { opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
+    <motion.header className="site-header" data-solid={solid || open || undefined} initial={reduce ? false : { opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
       <a href="#home" className="site-header__brand" aria-label="Peach, back to top">
         <img src="/assets/peach-icon-coral.svg" alt="" width="22" height="27" />
         <span>Peach</span>
