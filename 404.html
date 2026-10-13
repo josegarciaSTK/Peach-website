@@ -3,20 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0F0D0C">
 <title>Page not found — Peach</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="assets/peach-icon-coral.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="site.css">
+<style>
+.nf{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,88px);padding-block:clamp(48px,6vw,96px)}
+.nf__copy{display:flex;flex-direction:column;gap:24px}
+.nf__copy .lead{max-width:34ch}
+.nf__cta{display:flex;gap:12px;flex-wrap:wrap}
+.nf img{width:100%;max-height:72vh;object-fit:contain}
+@media(max-width:800px){.nf{grid-template-columns:1fr}.nf img{max-width:320px}}
+</style>
 </head>
 <body style="min-height:100vh;display:flex;flex-direction:column">
-<header class="top"><a href="index.html" aria-label="Peach home"><img src="assets/peach-icon-white.svg" alt=""></a></header>
-<main class="w" style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:24px">
-<div style="display:flex;flex-direction:column;gap:24px"><p class="label">404</p><h1 class="h1">This page didn’t ripen.</h1><p class="corner" style="max-width:34ch">The link may be old, or the page may have moved. Everything we do is one click away.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="pillbtn" href="index.html">Go to the homepage</a><a class="pillbtn line" href="index.html#contact">Contact us</a></div></div>
-<img src="assets/art/bloom-peach-1400.webp" alt="" style="width:100%;max-height:80vh;object-fit:contain">
+<header class="top">
+  <a class="top__brand" href="index.html" aria-label="Peach home"><span class="peach-logo"><img src="assets/peach-icon-coral.svg" alt=""><img src="assets/peach-wordmark.svg" alt=""></span></a>
+  <a class="btn btn--ghost btn--sm" href="index.html">Back to the site</a>
+</header>
+<main class="w nf" id="main">
+<div class="nf__copy"><p class="label">Page not found</p><h1 class="display">This page didn’t ripen.</h1><p class="lead">The link may be old, or the page may have moved. Everything we do is one click away.</p><div class="nf__cta"><a class="btn btn--peach" href="index.html">Go to the homepage</a><a class="btn btn--ghost" href="index.html#contact">Contact us</a></div></div>
+<img src="assets/art/stage-green.webp" alt="An unripe green peach">
 </main>
 </body>
 </html>

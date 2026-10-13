@@ -12,6 +12,9 @@ colors:
   leaf: "#5E7F3E"
   dust: "#8E8A80"
   paper-white: "#FFFFFF"
+  orchard-paper: "#EEEBDD"
+  paper-panel: "#E2DDCD"
+  pit-red: "#A3303F"
 typography:
   monument:
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
@@ -131,12 +134,12 @@ components:
 
 Everything on a Peach page arrives when it is ready. Fruit is not rushed: it blossoms, sets and ripens, and the site behaves the same way. Headlines rise into place once, the lavender branch turns peach only where the visitor's attention goes, and the process art grows from blossom to green fruit to ripe peach exactly as fast as the reader scrolls. Nothing loops for its own sake and nothing shouts. When something moves, it is because a moment has arrived.
 
-The world is a warm night orchard: a deep brown-black ground, cream text the colour of blossom, and peach coral as the fruit, the one colour that means "act here". The feel is warm and human, premium and crafted, playful in its details (the peach cursor, the ripening fruit, the magnetic buttons), and calm and clear in its reading. Big type, generous space and one strong idea per section keep it calm; the playfulness lives in small reactive details, never in noise.
+The world is an orchard through the day: deep brown-black night chapters, pale paper daylight chapters and full peach-coral chapters, with cream text the colour of blossom and peach coral as the fruit, the one colour that means "act here". The feel is warm and human, premium and crafted, playful in its details (the peach cursor, the ripening fruit, the magnetic buttons), and calm and clear in its reading. Big type, generous space and one strong idea per section keep it calm; the playfulness lives in small reactive details, never in noise.
 
 Interaction is tactile and lively. Buttons lean toward the cursor, project cards stack as you pass them, and the cursor itself turns into a labelled peach disc over anything clickable. The motion is springy but settles quickly, and it is always gentler with reduced motion turned on.
 
 **Key Characteristics:**
-- Dark warm ground everywhere; one vivid red band is the only light section; flat colour, no glows.
+- Colour by chapter: dark, light and coral sections alternate, each one full field of colour; flat colour, no glows.
 - Peach coral is reserved for actions, highlights and the fruit itself.
 - Large Inter display type with one Instrument Serif word as a counterpoint.
 - Fully round pills for actions; large, soft-cornered cards for content.
@@ -165,7 +168,13 @@ A warm night palette: brown-blacks and blossom creams, with peach coral as the s
 ### Named Rules
 **The Ripe Fruit Rule.** Peach coral marks what is ripe to act on: buttons, the current step, the label of a section. Do not spend it on decoration.
 
-**The One Red Band Rule.** Signal red appears once per page, as the closing marquee band.
+**The One Red Band Rule.** Signal red appears at most once per page. On the homepage the closing band now sits inside the coral chapter and takes coral with ink text.
+
+**The Chapter Rule.** Every section is one full field of colour, and the ground changes only at section edges (decided with the owner, 2026-10-13). Three chapters:
+- **Dark** (Night Pit ground, Blossom Cream text): hero, What we fix, Work, What we bring.
+- **Light** (Orchard Paper #EEEBDD ground, Night Pit text, Paper Panel #E2DDCD for raised surfaces, Pit Red #A3303F for labels and the serif accent): About, Process, Pricing.
+- **Coral** (Peach Flesh ground, Night Pit text and buttons): the closing band and Contact.
+Components never set colours directly; they use the role tokens (`--bg`, `--fg`, `--fg-2`…`--fg-4`, `--line`, `--surface`, `--accent`, `--accent-fill`, `--on-accent`), which each chapter class (`.ch-light`, `.ch-coral`) redefines. The static pages use the same classes from `site.css`.
 
 ## Typography
 
@@ -264,7 +273,7 @@ A soft circular spotlight (260px radius on mouse, 170px on touch) eases after th
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep every section on the Night Pit ground; use Bark for raised surfaces.
+- **Do** give each section one chapter (dark, light or coral) and style components through the role tokens, so they work in all three.
 - **Do** use the house curve, cubic-bezier(0.16, 1, 0.3, 1), for entrances and state changes; keep hover and press transitions at 0.2–0.3s.
 - **Do** let motion respond to the visitor (cursor, scroll position) rather than play on its own.
 - **Do** give every movement a reduced-motion version that keeps the state change and drops the travel.

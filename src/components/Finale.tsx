@@ -36,7 +36,7 @@ export function Contact() {
   }
 
   return (
-    <>
+    <div className="ch-coral">
       <Marquee />
       <section id="contact" className="contact" aria-labelledby="contact-heading">
         <div className="contact__copy">
@@ -73,7 +73,7 @@ export function Contact() {
           {draft ? <div className="contact__draft" role="status"><span>Your enquiry is ready.</span><a href={draft}>Open email draft <ArrowUpRight size={16} /></a></div> : null}
         </form>
       </section>
-    </>
+    </div>
   );
 }
 

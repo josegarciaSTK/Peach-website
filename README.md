@@ -27,7 +27,7 @@ Story: **from blossom to ripe**. `src/App.tsx` renders, in order:
 6b. **How pricing works** (`Pricing.tsx`): three steps along a line a small peach travels as the section scrolls.
 7. **Finale** (`Finale.tsx`): the one red marquee band, the dark contact section and the footer wordmark.
 
-The whole site is dark.
+Colour by chapter: dark (hero, What we fix, Work, What we bring), light (About, Process, Pricing) and coral (closing band and Contact). Sections opt in with `.ch-light` / `.ch-coral`; see DESIGN.md, "The Chapter Rule".
 
 Interaction (`Interaction.tsx`): Lenis inertia scrolling, magnetic buttons and a labelled peach cursor (fine pointers only). Everything respects reduced-motion: pinned sections fall back to static layouts. Fonts are the self-hosted brand fonts in `fonts/` (Inter, Instrument Serif regular and italic, IBM Plex Mono); tokens are at the top of `src/index.css`.
 
@@ -39,7 +39,7 @@ The contact form does not send anything: it prepares an email draft to reach@pea
 
 ## Pages
 - `index.html` — homepage shell; content is rendered by `src/App.tsx`
-- `service.html?s=fix|answer|brand|partner` — service detail pages, content in `services-data.js`
+- `service.html?s=fix|answer|brand|partner` — service detail pages, content in `services-data.js`. Same header, logo, type scale, footer and colour chapters as the homepage, via `site.css` (shared with legal and 404); each offer has its own artwork.
 - `legal.html` — privacy & terms (placeholder structure; needs legal review)
 - `404.html` — not found
 

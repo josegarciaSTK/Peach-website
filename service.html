@@ -3,131 +3,172 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#0F0D0C">
 <title>Services — Peach</title>
 <meta name="description" content="Peach services: focused, tested pieces of work for businesses in the US and UK.">
 <link rel="icon" href="assets/peach-icon-coral.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/Inter-Variable.ttf" as="font" type="font/ttf" crossorigin>
+<script>document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="site.css">
 <style>
-.shero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,72px);align-items:end;padding-top:clamp(48px,7vw,120px)}
-.shero .meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
-.shero .lede{margin-top:28px;max-width:46ch;font-size:clamp(17px,1.4vw,22px);line-height:1.45;color:var(--chalk);text-wrap:pretty}
-.shero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
-.crop{aspect-ratio:4/5;border-radius:999px 999px 0 0;background:#000 url(assets/art/bloom-peach-1400.webp) no-repeat;overflow:hidden}
+/* Service page. Chapters: dark hero, light "what we'll do", dark steps, light checks and terms, dark questions, coral next step. */
+.shero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,5vw,88px);align-items:center;padding-block:clamp(48px,7vw,112px) var(--section)}
+.shero__meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:28px}
+.shero__back{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-label);font-weight:500;color:var(--fg-3);padding:6px 0;transition:color .2s}
+.shero__back:hover{color:var(--fg)}
+.shero .label{display:block;margin-bottom:14px}
+.shero h1{max-width:13ch}
+.shero .lead{margin-top:28px;max-width:46ch}
+.shero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.shero__art{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:var(--ink-2)}
+.shero__art img{width:100%;height:100%;object-fit:cover}
+.shero__art[data-fit=contain] img{object-fit:contain;padding:10%}
+.js .shero__art img{transform:scale(1.08);transition:transform 1.4s var(--ease)}
+.js .shero__art.in img{transform:none}
+
+.solution{font-size:var(--fs-headline);font-weight:450;letter-spacing:-.05em;line-height:1;text-wrap:balance;max-width:20ch}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.panel{background:var(--raised);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,2.4vw,40px);display:flex;flex-direction:column;gap:18px}
-.panel.light{background:#fff;color:var(--ink);border-color:#fff}
-.list{list-style:none;border-top:1px solid var(--line)}
-.panel.light .list{border-color:#E2DCD5}
-.list li{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);text-wrap:pretty}
-.panel.light .list li{border-color:#E2DCD5}
-.list li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--coral);margin-top:.62em}
-.list.no li::before{background:none;border:1.5px solid var(--smoke);width:5px;height:5px}
-.steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.steps li{border-top:1px solid #fff;padding-top:18px;display:flex;flex-direction:column;gap:10px}
-.steps .n{font:400 13px/1 var(--mono);color:var(--smoke)}
-.steps h3{font:400 clamp(26px,2.2vw,36px)/1 var(--serif)}
-.steps p{color:var(--chalk);font-size:15.5px;text-wrap:pretty}
-.check{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(28px,3vw,48px) 0}
-.check p.big{font:400 clamp(28px,3vw,52px)/1.05 var(--serif);text-wrap:pretty}
-.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.terms div{border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.terms b{font:400 32px/1 var(--serif)}
-.faq{border-top:1px solid var(--line)}.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;padding:22px 0;font:400 clamp(24px,2.2vw,36px)/1.08 var(--serif)}
-.faq summary::-webkit-details-marker{display:none}.faq summary span{font:400 22px/1 var(--mono);color:var(--smoke)}
-.faq details[open] summary span{transform:rotate(45deg)}
-.faq details p{padding:0 0 24px;max-width:62ch;color:var(--chalk)}
+.list{list-style:none;margin:0;padding:0}
+.list li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line);text-wrap:pretty}
+.list li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent-fill);margin-top:.6em}
+.list.no li::before{background:none;box-shadow:inset 0 0 0 1.5px var(--fg-4)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:clamp(16px,2vw,32px);counter-reset:step}
+.steps li{position:relative;padding-top:28px;display:flex;flex-direction:column;gap:10px}
+.steps li::before{content:"";position:absolute;top:0;left:0;right:calc(-1 * clamp(16px,2vw,32px));height:2px;background:var(--line-2)}
+.steps li:last-child::before{right:0}
+.steps li::after{content:"";position:absolute;top:-5px;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent-fill)}
+.steps h3{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.05}
+.steps p{color:var(--fg-3);text-wrap:pretty}
+
+.check{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:24px;margin-bottom:clamp(40px,5vw,72px)}
+.check p.big{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.3;text-wrap:pretty;max-width:34ch}
+.terms{display:grid;gap:10px}
+.terms div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.terms span{font-size:var(--fs-label);color:var(--fg-3)}
+.terms b{font-weight:500;font-size:var(--fs-lead);letter-spacing:-.02em;text-align:right}
+
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.15}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:20px;height:20px;position:relative;transition:transform .3s var(--ease)}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--fg)}
+.faq summary i::after{transform:rotate(90deg)}
+.faq details[open] summary i{transform:rotate(45deg)}
+.faq details p{padding:0 0 24px;max-width:62ch;color:var(--fg-3)}
+
+.end{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(56px,7vw,112px)}
+.end h2{max-width:16ch}
 .others{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.other{border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px;min-height:220px;transition:border-color .2s,background .2s}
-.other:hover{border-color:#fff;background:var(--raised);color:#fff}
-.other .q{font:400 clamp(24px,2vw,32px)/1.05 var(--serif);margin-top:auto;text-wrap:balance}
-.end{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-@media (max-width:1000px){.shero,.grid2,.check{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.others,.terms{grid-template-columns:1fr}.crop{max-width:420px}}
-@media (max-width:560px){.steps{grid-template-columns:1fr}}
+.other{display:flex;flex-direction:column;gap:14px;min-height:240px;padding:clamp(22px,2.4vw,32px);border-radius:28px;background:var(--surface);transition:background-color .25s,transform .3s var(--ease)}
+.other .q{font-size:var(--fs-title);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin-top:auto;text-wrap:balance}
+.other .more{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-label);font-weight:500}
+.other .more svg{width:16px;height:16px;flex:none}
+@media(hover:hover) and (pointer:fine){.other:hover{background:var(--ink);color:var(--cream)}.other:hover .label{color:var(--peach)}}
+
+@media(max-width:1024px){.shero,.grid2,.check{grid-template-columns:1fr}.shero__art{max-width:460px}.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}.steps li::before{right:0}.others{grid-template-columns:1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><a href="index.html" aria-label="Peach home"><img src="assets/peach-icon-white.svg" alt=""></a><nav aria-label="Services" id="snav"></nav><span class="sp"></span><a class="pillbtn" href="index.html#contact">Start a project</a></header>
-<main id="main" class="w">
+<header class="top">
+  <a class="top__brand" href="index.html" aria-label="Peach home"><span class="peach-logo"><img src="assets/peach-icon-coral.svg" alt=""><img src="assets/peach-wordmark.svg" alt=""></span></a>
+  <nav class="top__nav" aria-label="Services" id="snav"></nav>
+  <a class="btn btn--peach btn--sm" href="index.html#contact">Book a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+</header>
 
-<section class="shero" data-screen-label="Service hero">
-<div>
-<div class="meta rv"><a class="label" href="index.html#offers">← All services</a><span class="label" id="kind"></span><span id="status"></span></div>
-<p class="label rv" id="sname" style="color:var(--light);margin-bottom:14px"></p>
-<h1 class="h1 rv rv-d1" id="q"></h1>
-<p class="lede rv rv-d2" id="problem"></p>
-<div class="cta rv rv-d2"><a class="pillbtn" href="index.html#contact" id="cta1">Start with a call</a><a class="pillbtn line" id="sheet" href="#">Ask about this service</a></div>
-</div>
-<div class="crop rv rv-d1" id="crop" role="img" aria-label="Detail of the peach bloom"></div>
+<main id="main">
+<section class="w ch-dark shero">
+  <div>
+    <div class="shero__meta rv"><a class="shero__back" href="index.html#offers">← All offers</a><span class="chip" id="kind"></span><span id="status"></span></div>
+    <span class="label rv" id="sname"></span>
+    <h1 class="display rv" id="q"></h1>
+    <p class="lead rv rv-d1" id="problem"></p>
+    <div class="shero__cta rv rv-d2"><a class="btn btn--peach" href="index.html#contact">Book a free call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="btn btn--ghost" id="sheet" href="#">Ask about this service</a></div>
+  </div>
+  <figure class="shero__art rv" id="art"><img id="artimg" alt="" src="assets/art/stage-ripe.webp"></figure>
 </section>
 
-<section class="s" data-screen-label="Solution">
-<div class="head"><p class="label rv">What we’ll do</p><p class="h2 rv rv-d1" id="solution" style="font-size:clamp(34px,4.2vw,72px);line-height:1"></p></div>
-<div class="grid2">
-<div class="panel rv"><p class="label">Included</p><ul class="list" id="incl"></ul></div>
-<div class="panel light rv rv-d1"><p class="label" style="color:#5E5955">What we need from you</p><ul class="list" id="needs"></ul></div>
-</div>
+<section class="s w ch-light" aria-labelledby="solution-label">
+  <div class="head"><p class="label rv" id="solution-label">What we’ll do</p><p class="solution rv rv-d1" id="solution"></p></div>
+  <div class="grid2">
+    <div class="panel rv"><p class="label">Included</p><ul class="list" id="incl"></ul></div>
+    <div class="panel rv rv-d1"><p class="label">What we need from you</p><ul class="list" id="needs"></ul></div>
+  </div>
 </section>
 
-<section class="s" data-screen-label="Stages">
-<div class="head"><p class="label rv">How it goes</p><h2 class="h2 rv rv-d1">Five steps, in order.</h2></div>
-<ol class="steps" id="steps"></ol>
+<section class="s w ch-dark" aria-labelledby="steps-heading">
+  <div class="head"><p class="label rv">How it goes</p><h2 class="headline rv rv-d1" id="steps-heading">Step by step, in order.</h2></div>
+  <ol class="steps" id="steps"></ol>
 </section>
 
-<section class="s" data-screen-label="Acceptance">
-<div class="check rv"><p class="label">How we check it works</p><p class="big" id="check"></p></div>
-<div class="grid2" style="margin-top:16px">
-<div class="panel rv"><p class="label">Not included</p><ul class="list no" id="noincl"></ul></div>
-<div class="panel rv rv-d1"><p class="label">Price, timeline and terms</p><div class="terms" id="terms" style="grid-template-columns:1fr"></div><p class="label" id="legal"></p></div>
-</div>
+<section class="s w ch-light" aria-labelledby="check-label">
+  <div class="check rv"><p class="label" id="check-label">How we check it works</p><p class="big" id="check"></p></div>
+  <div class="grid2">
+    <div class="panel rv"><p class="label">Not included</p><ul class="list no" id="noincl"></ul></div>
+    <div class="panel rv rv-d1"><p class="label">Price, timeline and terms</p><div class="terms" id="terms"></div><p class="caption" id="legal"></p></div>
+  </div>
 </section>
 
-<section class="s" data-screen-label="FAQ">
-<div class="head"><p class="label rv">Questions</p><h2 class="h2 rv rv-d1">Asked before.</h2></div>
-<div class="faq rv" id="faq"></div>
+<section class="s w ch-dark" aria-labelledby="faq-heading">
+  <div class="head"><p class="label rv">Questions</p><h2 class="headline rv rv-d1" id="faq-heading">Asked before.</h2></div>
+  <div class="faq rv" id="faq"></div>
 </section>
 
-<section class="s" data-screen-label="Next">
-<div class="end"><h2 class="h2 rv" id="next" style="max-width:16ch"></h2><a class="pillbtn rv rv-d1" href="index.html#contact">Start a project</a></div>
-<div class="head" style="margin:clamp(64px,8vw,120px) 0 24px"><p class="label">Other services</p></div>
-<div class="others" id="others"></div>
+<section class="s w ch-coral" aria-labelledby="next">
+  <div class="end"><h2 class="display rv" id="next"></h2><a class="btn btn--peach rv rv-d1" href="index.html#contact">Start with a call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  <p class="label rv" style="margin-bottom:20px">Other offers</p>
+  <div class="others" id="others"></div>
 </section>
 </main>
 
-<footer class="foot">
-<div class="links"><nav aria-label="Footer"><a href="index.html#services">Services</a><a href="index.html#process">How we work</a><a href="index.html#ways">Ways to work</a><a href="index.html#contact">Contact</a><a href="legal.html">Privacy &amp; terms</a></nav><span>reach@peachhq.co</span><span>© Peach 2026</span></div>
-<svg class="lw" viewBox="650 1086 700 186" aria-hidden="true" focusable="false"><defs><linearGradient id="lwgF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD9C7"/><stop offset="1" stop-color="#FA7576"/></linearGradient></defs><path fill="#FFFFFF" d="M717.48,1219.71c-5.56,0-10.96-0.7-16.1-2.02v-34.52c4.74,2.74,10.23,4.34,16.1,4.34 c17.78,0,32.2-14.41,32.2-32.2c0-17.78-14.42-32.19-32.2-32.19c-17.78,0-32.2,14.41-32.2,32.19V1268h-32.2v-112.68 c0-35.57,28.83-64.39,64.39-64.39c35.56,0,64.4,28.83,64.4,64.39C781.87,1190.88,753.04,1219.71,717.48,1219.71z"/><path fill="#FFFFFF" d="M894.85,1178.16l25.39,19.98c-2.99,3.33-7.29,8.19-16.23,13.23l0.06,0.08 c-9.32,5.25-20.09,8.26-31.55,8.26c-35.47,0-64.39-28.79-64.39-64.39c0-35.56,28.83-64.39,64.39-64.39 c21.33,0,43.15,11.15,55.25,31.32c-27.82,35.8-18.91,24.33-39.59,50.96l-25.15-20.1l21.42-27.57 c-1.76-1.01-6.88-2.41-11.92-2.41c-17.78,0-32.2,14.41-32.2,32.19c0,17,13.22,31,30.08,32.06 C879.15,1187.89,887.73,1184.96,894.85,1178.16z"/><path fill="url(#lwg2) #FA7576" d="M1080.94,1155.32v64.39h-32.19v-64.39c0-17.79-14.42-32.2-32.2-32.2c-17.78,0-32.2,14.41-32.2,32.2 c0,17.78,14.42,32.2,32.2,32.2c5.87,0,11.36-1.6,16.1-4.34v34.52c-5.15,1.32-10.54,2.03-16.1,2.03 c-35.57-0.01-64.39-28.84-64.39-64.4c0-35.57,28.83-64.39,64.39-64.39C1052.11,1090.93,1080.94,1119.75,1080.94,1155.32z"/><path fill="url(#lwg2) #FA7576" d="M1220.12,1200.85c-11.66,11.66-27.75,18.86-45.53,18.86c-35.57,0-64.39-28.83-64.39-64.39 c0-35.57,28.83-64.39,64.39-64.39c17.78,0,33.88,7.2,45.53,18.86l-22.77,22.77c-5.83-5.83-13.88-9.43-22.77-9.43 c-17.78,0-32.2,14.41-32.2,32.2c0,17.78,14.42,32.2,32.2,32.2c8.89,0,16.94-3.6,22.77-9.43L1220.12,1200.85z"/><path fill="url(#lwg2) #FA7576" d="M1346.92,1155.32v64.39h-32.2v-64.39c0-17.79-14.42-32.2-32.2-32.2v96.59h-32.2v-177.08h32.2v48.29 C1318.09,1090.93,1346.92,1119.75,1346.92,1155.32z"/></svg>
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__intro"><p>A small studio for brands, websites and the systems behind them.</p><a class="btn btn--peach" href="index.html#contact">Book a free call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+    <nav class="footer__col" aria-label="Studio"><span>Studio</span><a href="index.html#about">About</a><a href="index.html#fix">What we fix</a><a href="index.html#process">Process</a><a href="index.html#work">Work</a><a href="index.html#pricing">Pricing</a><a href="index.html#contact">Contact</a></nav>
+    <nav class="footer__col" aria-label="Offers" id="foffers"></nav>
+    <div class="footer__col"><span>Say hello</span><a href="mailto:reach@peachhq.co">reach@peachhq.co</a></div>
+  </div>
+  <div class="footer__logo" role="img" aria-label="Peach"><img src="assets/peach-icon-coral.svg" alt=""><img src="assets/peach-wordmark.svg" alt=""></div>
+  <div class="footer__base"><span>© <span id="year">2026</span> Peach. Make it peachy.</span><a href="legal.html">Privacy &amp; terms</a><a href="#main">Back to top ↑</a></div>
 </footer>
 
 <script src="services-data.js"></script>
 <script>
 (function(){
 var S=window.PEACH_SERVICES,keys=Object.keys(S),k=new URLSearchParams(location.search).get("s");if(!S[k])k=keys[0];var d=S[k];
+// Peach artwork per offer: cut-outs sit on the panel, photographs fill it.
+var ART={fix:["assets/art/stage-ripe.webp","contain"],answer:["assets/art/peach-planet.webp","cover"],brand:["assets/art/branch-peach.webp","contain"],partner:["assets/art/peach-astronaut.webp","cover"]};
 function $(id){return document.getElementById(id)}
-function li(arr){return arr.map(function(x){return "<li>"+x+"</li>"}).join("")}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function li(arr){return arr.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")}
+var arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>';
 document.title=d.name+" — Peach";
-$("snav").innerHTML=keys.map(function(x){return '<a href="service.html?s='+x+'"'+(x===k?' aria-current="page"':'')+'>'+S[x].name+'</a>'}).join("");
+$("year").textContent=new Date().getFullYear();
+$("snav").innerHTML=keys.map(function(x){return '<a href="service.html?s='+x+'"'+(x===k?' aria-current="page"':'')+'>'+esc(S[x].name)+'</a>'}).join("");
+$("foffers").innerHTML='<span>Offers</span>'+keys.map(function(x){return '<a href="service.html?s='+x+'"'+(x===k?' aria-current="page"':'')+'>'+esc(S[x].name)+'</a>'}).join("");
 $("kind").textContent=d.kind;
-$("status").innerHTML=d.draft?'<span class="tag draft"><i></i>'+d.draft+'</span>':'';
-$("sname").textContent=d.name;$("q").textContent=d.q;$("problem").textContent=d.problem;$("solution").textContent=d.solution;
+$("status").innerHTML=d.draft?'<span class="chip chip--draft">'+esc(d.draft)+'</span>':'';
+$("sname").textContent=d.name;$("problem").textContent=d.problem;$("solution").textContent=d.solution;
+// Headline lines rise from behind their baseline: split the problem into two balanced lines.
+var words=d.q.split(" "),half=Math.ceil(words.length/2);
+$("q").innerHTML='<span class="mask"><span>'+esc(words.slice(0,half).join(" "))+'</span></span><span class="mask"><span>'+esc(words.slice(half).join(" "))+'</span></span>';
+$("q").setAttribute("aria-label",d.q);
+var a=ART[k]||ART.fix;$("artimg").src=a[0];$("art").setAttribute("data-fit",a[1]);
 $("sheet").href="mailto:reach@peachhq.co?subject="+encodeURIComponent("Tell me about "+d.name);
-$("crop").style.backgroundSize=d.crop[0];$("crop").style.backgroundPosition=d.crop[1];
 $("incl").innerHTML=li(d.incl);$("needs").innerHTML=li(d.needs);$("noincl").innerHTML=li(d.noincl);
-$("steps").innerHTML=d.steps.map(function(s,i){return '<li class="rv'+(i?' rv-d'+Math.min(i,3):'')+'"><span class="n">0'+(i+1)+'</span><h3>'+s[0]+'</h3><p>'+s[1]+'</p></li>'}).join("");
+$("steps").style.setProperty("--n",d.steps.length);
+$("steps").innerHTML=d.steps.map(function(s,i){return '<li class="rv'+(i?' rv-d'+Math.min(i,3):'')+'"><h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></li>'}).join("");
 $("check").textContent=d.check;
-$("terms").innerHTML=d.terms.map(function(t){return '<div><span class="label">'+t[0]+'</span><b>'+t[1]+'</b></div>'}).join("");
+$("terms").innerHTML=d.terms.map(function(t){return '<div><span>'+esc(t[0])+'</span><b>'+esc(t[1])+'</b></div>'}).join("");
 $("legal").textContent=d.legal;
-$("faq").innerHTML=d.faq.map(function(f,i){return '<details'+(i?'':' open')+'><summary>'+f[0]+'<span aria-hidden="true">+</span></summary><p>'+f[1]+'</p></details>'}).join("");
+$("faq").innerHTML=d.faq.map(function(f,i){return '<details'+(i?'':' open')+'><summary>'+esc(f[0])+'<i aria-hidden="true"></i></summary><p>'+esc(f[1])+'</p></details>'}).join("");
 $("next").textContent=d.next;
-$("others").innerHTML=keys.filter(function(x){return x!==k}).map(function(x){var o=S[x];return '<a class="other rv" href="service.html?s='+x+'"><span class="label">'+o.name+(o.draft?' · draft':'')+'</span><span class="q">'+o.q+'</span><span class="label" style="color:#fff">Read more →</span></a>'}).join("");
+$("others").innerHTML=keys.filter(function(x){return x!==k}).map(function(x){var o=S[x];return '<a class="other rv" href="service.html?s='+x+'"><span class="label">'+esc(o.name)+(o.draft?' · draft':'')+'</span><span class="q">'+esc(o.q)+'</span><span class="more">Read more '+arrow+'</span></a>'}).join("");
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
 document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
-window.scrollTo(0,0);
 })();
 </script>
 </body>

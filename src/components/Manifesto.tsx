@@ -29,7 +29,7 @@ export function Manifesto() {
   const plain = statement.filter((p): p is string => typeof p === 'string').join(' ');
 
   return (
-    <section id="about" className="manifesto" aria-labelledby="about-label">
+    <section id="about" className="manifesto ch-light" aria-labelledby="about-label">
       <div className="section-index"><span id="about-label">About</span></div>
       <p ref={ref} className="manifesto__text" aria-label={plain}>
         {words.map((content, i) => {

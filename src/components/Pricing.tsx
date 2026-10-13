@@ -17,7 +17,7 @@ export function Pricing() {
   const left = useTransform(progress, [0, 1], reduce ? ['100%', '100%'] : ['0%', '100%']);
   const rotate = useTransform(progress, [0, 1], reduce ? [0, 0] : [-30, 330]);
   return (
-    <section id="pricing" className="pricing" aria-labelledby="pricing-heading">
+    <section id="pricing" className="pricing ch-light" aria-labelledby="pricing-heading">
       <div className="section-index"><span>Pricing</span></div>
       <div className="pricing__head">
         <MaskedLines id="pricing-heading" className="pricing__heading" lines={['How pricing works.']} />

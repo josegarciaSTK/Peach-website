@@ -51,7 +51,7 @@ export function RipenProcess() {
 
   if (reduce) {
     return (
-      <section id="process" className="ripen ripen--static" aria-labelledby="process-heading">
+      <section id="process" className="ripen ripen--static ch-light" aria-labelledby="process-heading">
         <div className="section-index"><span>Process</span></div>
         <MaskedLines id="process-heading" className="ripen__heading" lines={['Good work.', <span className="serif-italic">No runaround.</span>]} />
         {list}
@@ -60,7 +60,7 @@ export function RipenProcess() {
   }
 
   return (
-    <section ref={ref} id="process" className="ripen" aria-labelledby="process-heading">
+    <section ref={ref} id="process" className="ripen ch-light" aria-labelledby="process-heading">
       <div className="ripen__pin">
         <div className="section-index"><span>Process</span></div>
         <div className="ripen__stage">
